@@ -1,7 +1,6 @@
 <div class=" flex flex-col w-64 bg-white h-screen border-r" id="sidebar">
-    <div class="flex items-center h-14 border-b px-4 space-x-2 hover:cursor-pointer bg-blue-500 " id="toggleSidebar">
-        <img src="public/images/logo.png" alt="logo.png" class="w-10 h-10">
-        <label class="text-white text-xl font-bold hover:cursor-pointer">KU Military</label>
+    <div class="flex items-center h-14 border-b px-4 space-x-2 hover:cursor-pointer  " id="toggleSidebar">
+        <label class="text-gray-700 text-center text-xl font-bold hover:cursor-pointer">KU <span class="text-blue-500">Military</span></label>
     </div>
     <div class="overflow-y-auto overflow-x-hidden flex-grow">
         <ul class="flex flex-col py-4 space-y-1">
