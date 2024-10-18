@@ -1,4 +1,4 @@
-<div class="flex justify-center items-center h-lvh overflow-hidden bg-gray-200">
+<div class="flex justify-center items-center h-lvh overflow-hidden bg-gray-50">
     <div class="w-full max-w-lg">
         <form 
             method="POST" 
@@ -22,8 +22,8 @@
                     value="<?php echo $equipment->name ?>"
                 >
             </div>
-            <div class="mb-4 flex flex-wrap -mx-3">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <div class="md:mb-4 flex flex-wrap -mx-3">
+                <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
                     <label class="block text-gray-700 text-sm font-bold mb-2">
                         Type
                     </label>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
 
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
                     <label class="block text-gray-700 text-sm font-bold mb-2">
                         Status
                     </label>

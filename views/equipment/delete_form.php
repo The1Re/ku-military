@@ -1,4 +1,4 @@
-<div class="flex justify-center items-center h-lvh overflow-hidden bg-gray-200">
+<div class="flex justify-center items-center h-lvh overflow-hidden bg-gray-50">
     <div class="w-full max-w-lg">
         <form method="GET" action="" class="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4">
             <div class="mb-6">
