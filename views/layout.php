@@ -3,7 +3,7 @@
     <?php include('views/components/sidebar.php'); ?>
 
     <!-- Content -->
-     <div class="w-screen h-screen">
+     <div class="w-screen h-screen bg-gray-50">
          <?php require('route.php'); ?>
      </div>
 </div>

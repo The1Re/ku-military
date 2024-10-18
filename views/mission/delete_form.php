@@ -3,18 +3,18 @@
         <form method="GET" action="" class="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4">
             <div class="mb-6">
                 <label class="block text-gray-700 text-xl font-bold">
-                    Delete Equipment ID[<?php echo $equipment->id ?>]
+                    Delete Mission ID[<?php echo $mission->id ?>]
                 </label>
             </div>
             <div class="mb-6">
                 <label class="block text-gray-700 font-normal text-sm mb-2">
-                    Are you sure to remove <?php echo $equipment->name ?>?
+                    Are you sure to remove <span class="text-red-500 "><?php echo $mission->name ?></span> ?
                 </label>
             </div>
 
             <div class="flex items-center justify-between">
-                <input type="hidden" name="id" value="<?php echo $equipment->id ?>">
-                <input type="hidden" name="controller" value="equipment">
+                <input type="hidden" name="id" value="<?php echo $mission->id ?>">
+                <input type="hidden" name="controller" value="mission">
                 <button
                     name="action"
                     value="delete"

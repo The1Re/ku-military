@@ -1,4 +1,4 @@
-<div class="flex justify-center items-center h-lvh overflow-hidden bg-gray-50">
+<div class="flex justify-center items-center h-lvh overflow-hidden">
     <div class="w-full max-w-lg">
         <form 
             method="POST" 

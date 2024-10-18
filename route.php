@@ -1,6 +1,5 @@
 <?php
 
-
 #  show error information
 error_reporting(E_ALL);
 ini_set('display_errors', true);
@@ -16,7 +15,8 @@ $action = $_GET['action'] ?? 'home';
 $controllers = [
     'page' => ['home', 'error'],
     'equipment' => ['index', 'addForm', 'add', 'deleteForm', 'delete', 'editForm', 'edit', 'search'],
-    'borrowEquipment' => ['index', 'borrowForm']
+    'borrowEquipment' => ['index', 'borrowForm'],
+    'mission' => ['index', 'addForm', 'add', 'deleteForm', 'delete', 'editForm', 'edit', 'search'],
 ];
 
 function call(string $controller, string $action)
@@ -34,6 +34,11 @@ function call(string $controller, string $action)
         case 'borrowEquipment':
             require_once('models/borrowEquipment.php');
             $controller_obj = new BorrowEquipmentController();
+            break;
+        case 'mission':
+            require_once('models/mission.php');
+            require_once('models/soldierModel.php');
+            $controller_obj = new MissionController();
             break;
     }
     $controller_obj->$action();
