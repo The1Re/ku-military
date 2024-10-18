@@ -1,11 +1,10 @@
-<?php
-    $data_type = ['weapon', 'vehicle'];
-    $data_status = ['avaliable', 'maintenance', 'currently in use']
-?>
-
 <div class="flex justify-center items-center h-lvh overflow-hidden bg-gray-200">
     <div class="w-full max-w-lg">
-        <form method="GET" action="" class="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4">
+        <form 
+            method="POST" 
+            action="?controller=equipment&action=edit" 
+            class="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4" 
+        >
             <div class="mb-6">
                 <label class="block text-gray-700 text-xl font-bold">
                     Edit Equipment ID[<?php echo $equipment->id ?>]
@@ -34,7 +33,7 @@
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-gray-500"
                             >
                             <?php
-                                foreach($data_type as $type)
+                                foreach($type_list as $type)
                                 {
                                     $selected = ($type == $equipment->type) ? 'selected' : '';
                                     echo '
@@ -64,19 +63,19 @@
                             name="status"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-gray-500"
                         >
-                            <?php 
-                                foreach($data_status as $status)
-                                {
-                                    $selected = ($status == $equipment->status) ? 'selected' : '';
-                                    echo '
-                                        <option 
-                                            value="'.$status.'"
-                                            '. $selected .'
-                                        >'
-                                        .ucfirst($status).
-                                        '</option>';
-                                }
-                            ?>
+                        <?php 
+                            foreach($status_list as $status)
+                            {
+                                $selected = ($status == $equipment->status) ? 'selected' : '';
+                                echo '
+                                    <option 
+                                        value="'.$status.'"
+                                        '. $selected .'
+                                    >'
+                                    .ucfirst($status).
+                                    '</option>';
+                            }
+                        ?>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -102,19 +101,17 @@
 
             <div class="flex items-center justify-between">
                 <input type="hidden" name="id" value="<?php echo $equipment->id ?>">
-                <input type="hidden" name="controller" value="equipment">
                 <button
                     name="action"
                     value="edit"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    type="button"
-                    id="editBtn"
+                    type="submit"
                 >
                     Edit
                 </button>
                 <button 
                     name="action"
-                    value="index"
+                    value="cancel"
                     class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
                     type="submit"
                 >

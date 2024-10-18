@@ -2,6 +2,8 @@
 
 class EquipmentController
 {
+    private $type_list = ['weapon', 'vehicle'];
+    private $status_list = ['avaliable', 'maintenance', 'currently in use'];
     public function index()
     {
         $equipment_list = Equipment::getAll();
@@ -10,17 +12,22 @@ class EquipmentController
 
     public function addForm()
     {
+        $type_list = $this->type_list;
+        $status_list = $this->status_list;
+
         require('views/equipment/add_form.php');
     }
 
     public function add()
     {
-        $name = $_GET['name'];
-        $type = $_GET['type'];
-        $status = $_GET['status'];
-        $detail = $_GET['detail'];
-
-        Equipment::add($name, $type, $status, $detail);
+        if ($_POST['action'] == 'add') {
+            $name = $_POST['name'];
+            $type = $_POST['type'];
+            $status = $_POST['status'];
+            $detail = $_POST['detail'];
+    
+            Equipment::add($name, $type, $status, $detail);
+        }
         $this->index();
     }
     public function deleteForm()
@@ -43,19 +50,24 @@ class EquipmentController
     {
         $id = $_GET['id'];
         $equipment = Equipment::getById($id);
+        
+        $status_list = $this->status_list;
+        $type_list = $this->type_list;
 
         require('views/equipment/edit_form.php');
     }
 
     public function edit()
     {
-        $id = $_GET['id'];
-        $name = $_GET['name'];
-        $type = $_GET['type'];
-        $status = $_GET['status'];
-        $detail = $_GET['detail'];
+        if ($_POST['action'] != 'cancel') {
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+            $type = $_POST['type'];
+            $status = $_POST['status'];
+            $detail = $_POST['detail'];
 
-        Equipment::update($id, $name, $type, $status, $detail);
+            Equipment::update($id, $name, $type, $status, $detail);
+        }
         $this->index();
     }
 

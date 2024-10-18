@@ -1,6 +1,10 @@
 <div class="flex justify-center items-center h-lvh overflow-hidden bg-gray-200">
     <div class="w-full max-w-lg">
-        <form method="GET" action="" class="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4">
+        <form 
+            method="POST" 
+            action="?controller=equipment&action=add" 
+            class="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4"
+        >
             <div class="mb-6">
                 <label class="block text-gray-700 text-xl font-bold">
                     New Equipment
@@ -27,8 +31,19 @@
                             name="type"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-gray-500"
                         >
-                            <option selected value="weapon">Weapon</option>
-                            <option value="vehicle">Vehicle</option>
+                        <?php
+                            foreach($type_list as $type)
+                            {
+                                $selected = ($type == 'weapon') ? 'selected' : '';
+                                echo '
+                                    <option 
+                                        value="'.$type.'"
+                                        '.$selected.'
+                                    >'
+                                    .ucfirst($type).
+                                    '</option>';
+                            }
+                        ?>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -47,9 +62,19 @@
                             name="status"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-gray-500"
                         >
-                            <option selected value="avaliable">Avaliable</option>
-                            <option value="maintenance">Maintenance</option>
-                            <option value="currently in use">Currently in use</option>
+                        <?php 
+                            foreach($status_list as $status)
+                            {
+                                $selected = ($status == 'avaliable') ? 'selected' : '';
+                                echo '
+                                    <option 
+                                        value="'.$status.'"
+                                        '. $selected .'
+                                    >'
+                                    .ucfirst($status).
+                                    '</option>';
+                            }
+                        ?>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -74,7 +99,6 @@
             </div>
 
             <div class="flex items-center justify-between">
-                <input type="hidden" name="controller" value="equipment">
                 <button
                     name="action"
                     value="add"

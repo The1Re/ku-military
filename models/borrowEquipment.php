@@ -18,12 +18,6 @@ class BorrowEquipment
         $this->returnDate = $returnDate;
     }
 
-    /**
-     * Get All methods
-     * get all BorrowEquipment on database
-     * 
-     * @return BorrowEquipment[] array of BorrowEquipment
-     */
     public static function getAll(): array
     {
         $data = [];
@@ -41,13 +35,6 @@ class BorrowEquipment
         return $data;
     }
 
-    /**
-     * Add BorrowEquipment methods
-     * add BorrowEquipment to database
-     * 
-     * @param BorrowEquipment $BorrowEquipment
-     * @return bool if add success return true else false
-     */
     public static function add($missionId): bool
     {
         $sql = "INSERT INTO borrowequipment(missionId, borrowDate) VALUES (?, ?)";
@@ -56,13 +43,6 @@ class BorrowEquipment
         return $result > 0;
     }
 
-    /**
-     * Delete BorrowEquipment methods
-     * delete BorrowEquipment on database by id
-     * 
-     * @param int $id
-     * @return bool if delete succss return true else false
-     */
     public static function delete(int $id): bool
     {
         $sql = "DELETE FROM borrowequipment WHERE borrowEquipmentId = ?";
@@ -71,14 +51,6 @@ class BorrowEquipment
         return $result > 0;
     }
 
-    /**
-     * Update BorrowEquipment methods
-     * update BorrowEquipment on database by id
-     * 
-     * @param int $id
-     * @param BorrowEquipment $BorrowEquipment
-     * @return bool if update success return true else false
-     */
     public static function update(int $id, BorrowEquipment $b): bool
     {
         $sql = "

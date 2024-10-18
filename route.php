@@ -1,5 +1,6 @@
 <?php
 
+
 #  show error information
 error_reporting(E_ALL);
 ini_set('display_errors', true);
@@ -38,7 +39,10 @@ function call(string $controller, string $action)
     $controller_obj->$action();
 }
 
-if (key_exists($controller, $controllers) && in_array($action, $controllers[$controller]))
-    call($controller, $action);
-else
+if (key_exists($controller, $controllers)) {
+    if (in_array($action, $controllers[$controller]))
+        call($controller, $action);
+    else
+        call('page', 'error');
+} else
     call('page', 'error');
