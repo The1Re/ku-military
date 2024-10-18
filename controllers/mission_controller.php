@@ -83,6 +83,7 @@ class MissionController
     public function search()
     {
         $key = $_GET['key'];
+        $status_list = $this->status_list;
 
         $mission_list = Mission::search($key);
         require('views/mission/index.php');
