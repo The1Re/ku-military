@@ -135,4 +135,22 @@ class Mission
         }
         return $data;
     }
+
+    public static function count($key)
+    {
+        $sql = "
+            SELECT * FROM mission
+            WHERE 
+                missionName LIKE '%$key%' 
+                OR leaderId LIKE '%$key%' 
+                OR targetArea LIKE '%$key%' 
+                OR strategy LIKE '%$key%' 
+                OR status LIKE '%$key%'
+                OR dateStart LIKE '%$key%'
+                OR dateEnd LIKE '%$key%'
+                OR missionId LIKE '%$key%'
+        ";
+        $result = Database::query($sql);
+        return $result->num_rows;
+    }
 }

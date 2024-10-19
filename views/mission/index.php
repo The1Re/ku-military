@@ -5,6 +5,24 @@
             List of Missions
         </label>
 
+        <div class="flex items-center overflow-hidden mb-6 space-x-6 py-4">
+            <?php foreach($cards as $card) : ?>
+                <div class="<?php echo $card['color']; ?> w-1/3 max-w-sm h-28 rounded-lg shadow-lg p-6">
+                    <div class="flex justify-between items-center h-full space-x-4">
+                        <div class="text-white font-bold text-3xl text-right">
+                            <p><?php echo $card['count']; ?></p>
+                        </div>
+                        <div class="text-white font-bold text-lg text-right">
+                            <i class="<?php echo $card['icon']; ?> fa-xl text-white mb-6"></i>
+                            <p><?php echo $card['text']; ?></p>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+
+
 		<div class="flex justify-between items-center mb-6">
 			<form method="GET" action="" class="mr-4">
 				<label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
@@ -87,7 +105,7 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">' . $mission->name . '</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">' . $mission->targetArea . '</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">' . $mission->strategy . '</td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm ' . $style . '">' . $mission->status . '</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold ' . $style . '">' . $mission->status . '</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">' . $mission->dateStart . '</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">' . $mission->dateEnd . '</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">

@@ -8,10 +8,37 @@ class MissionController
         'Failed' => 'text-red-500'
     ];
 
+    private function getCardsDetail()
+    {
+        return 
+        [
+            [
+                'text' => 'IN PROGRESS MISSION',
+                'count' => Mission::count('InProgress'), 
+                'icon' => 'fa-solid fa-spinner',
+                'color' => 'bg-blue-400'
+            ],
+            [
+                'text' => 'SUCCESS MISSION',
+                'count' => Mission::count('Success'),
+                'icon' => 'fa-solid fa-check',
+                'color' => 'bg-green-400'
+            ],
+            [
+                'text' => 'FAILED MISSION',
+                'count' => Mission::count('Failed'),
+                'icon' => 'fa-solid fa-xmark',
+                'color' => 'bg-red-400'
+            ]
+        ];
+    }
+
     public function index()
     {
         $mission_list = Mission::getAll();
         $status_list = $this->status_list;
+
+        $cards = $this->getCardsDetail();
 
         require('views/mission/index.php');
     }
@@ -84,6 +111,7 @@ class MissionController
     {
         $key = $_GET['key'];
         $status_list = $this->status_list;
+        $cards = $this->getCardsDetail();
 
         $mission_list = Mission::search($key);
         require('views/mission/index.php');
