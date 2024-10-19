@@ -26,7 +26,7 @@ class MissionController
 
     public function add()
     {
-        if ($_POST['action'] == 'add') {
+        if (isset($_POST['action']) && $_POST['action'] == 'add') {
             $leaderId = $_POST['leaderId'];
             $name = $_POST['name'];
             $targetArea = $_POST['targetArea'];
@@ -66,7 +66,7 @@ class MissionController
 
     public function edit()
     {
-        if ($_POST['action'] != 'cancel') {
+        if (isset($_POST['action']) && $_POST['action'] != 'cancel') {
             $id = $_POST['id'];
             $leaderId = $_POST['leaderId'];
             $name = $_POST['name'];
