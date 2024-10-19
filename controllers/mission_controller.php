@@ -75,7 +75,7 @@ class MissionController
             $status = $_POST['status'];
             $dateEnd = $_POST['dateEnd'] ?? null;
 
-            Mission::update($id, $leaderId, $name, $targetArea, $strategy, $status, $dateEnd);
+            Mission::update($id, $leaderId, $name, $targetArea, $strategy, $status);
         }
         $this->index();
     }
