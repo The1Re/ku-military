@@ -39,6 +39,4 @@ for (let i=0; i<toggle_lists.length; i++)
             icon.classList.add('fa-angle-down');
         }
     });
-
-    
 }
