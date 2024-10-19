@@ -46,7 +46,7 @@
                                     Mission Id
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    Leader Name
+                                    Leader Id
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Name
