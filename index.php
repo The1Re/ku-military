@@ -11,6 +11,7 @@
     <script src="https://kit.fontawesome.com/c80799690c.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php date_default_timezone_set('Asia/Bangkok'); ?>
     
     <?php require('views/layout.php') ?>
 

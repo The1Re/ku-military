@@ -81,13 +81,14 @@ class Mission
         return $result;
     }
 
-    public static function update($id, $leaderId, $name, $targetArea, $strategy, $status, $dateEnd)
+    public static function update($id, $leaderId, $name, $targetArea, $strategy, $status)
     {
         $sql = "
             UPDATE mission
             SET leaderId = ?, missionName = ?, targetArea = ?, strategy = ?, status = ?, dateEnd = ?
             WHERE missionId = ?
         ";
+        $dateEnd = $status == 'Success' || $status == 'Failed' ? date("Y-m-d H:i:s") : null;
         $params = [$leaderId, $name, $targetArea, $strategy, $status, $dateEnd, $id];
         $result = Database::query($sql, $params);
         return $result;
