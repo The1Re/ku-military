@@ -1,7 +1,7 @@
-<div class="flex flex-col h-screen p-6 bg-gray-50">
+<div class="flex flex-col h-screen py-12 px-10 bg-gray-50">
     <div class="w-full">
         
-        <label class="block text-gray-800 text-2xl font-bold mb-4 mx-auto">
+        <label class="prevent-select block text-gray-800 text-2xl font-bold mb-4 mx-auto">
             List of Missions
         </label>
 

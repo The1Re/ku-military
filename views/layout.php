@@ -1,4 +1,4 @@
-<div class="min-h-screen flex flex-row flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800">
+<div class="relative min-h-screen flex flex-row flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800">
     <!-- Sidebar -->
     <?php include('views/components/sidebar.php'); ?>
 

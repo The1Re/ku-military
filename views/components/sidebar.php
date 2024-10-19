@@ -1,5 +1,9 @@
-<div class=" flex flex-col w-64 bg-white h-screen border-r" id="sidebar">
-    <div class="flex items-center h-14 border-b px-4 space-x-2 hover:cursor-pointer  " id="toggleSidebar">
+<div id="toggleSidebarButton" class="toggleSidebar hidden absolute top-4 left-4 cursor-pointer prevent-select">
+    <i class="fa-solid fa-bars"></i>
+</div>
+
+<div class="flex flex-col w-64 bg-white h-screen border-r" id="sidebar">
+    <div class="toggleSidebar prevent-select flex items-center h-14 border-b px-4 space-x-2 hover:cursor-pointer">
         <label class="text-gray-700 text-center text-xl font-bold hover:cursor-pointer">KU <span class="text-blue-500">Military</span></label>
     </div>
     <div class="overflow-y-auto overflow-x-hidden flex-grow">

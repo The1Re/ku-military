@@ -1,17 +1,23 @@
 const sidebar = document.getElementById('sidebar');
-const toggleButton = document.getElementById('toggleSidebar');
+const toggleSidebars = document.getElementsByClassName('toggleSidebar');
 
-toggleButton.addEventListener('click', () => {
-    if (sidebar.classList.contains('w-64')) {
-        sidebar.classList.remove('w-64');
-        sidebar.classList.add('w-0');
-        toggleButton.innerText = 'Open Sidebar';
-    } else {
-        sidebar.classList.remove('w-0');
-        sidebar.classList.add('w-64');
-        toggleButton.innerText = 'Close Sidebar';
-    }
-})
+for (let i=0; i<toggleSidebars.length; i++)
+{
+    const toggleSidebar = toggleSidebars[i];
+    toggleSidebar.addEventListener('click', () => {
+        const toggleSidebarBtn = document.getElementById('toggleSidebarButton');
+        if (sidebar.classList.contains('w-64')) {
+            //sidebar open to close
+            sidebar.classList.remove('w-64');
+            sidebar.classList.add('w-0');
+        } else {
+            //sidebar close to open
+            sidebar.classList.remove('w-0');
+            sidebar.classList.add('w-64');
+        }
+        toggleSidebarBtn.classList.toggle('hidden');
+    })
+}
 
 const toggle_lists = document.getElementsByClassName('toggle-list');
 for (let i=0; i<toggle_lists.length; i++)
