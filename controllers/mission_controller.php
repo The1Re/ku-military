@@ -118,4 +118,14 @@ class MissionController
         $mission_list = Mission::search($key);
         require('views/mission/index.php');
     }
+
+    public function sort()
+    {
+        $title = $_GET['title'];
+        $status_style = $this->status_style;
+        $cards = $this->getCardsDetail();
+
+        $mission_list = Mission::sort($title, 'DESC');
+        require('views/mission/index.php');
+    }
 }

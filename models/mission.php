@@ -33,20 +33,7 @@ class Mission
             SELECT * FROM mission
         ";
         $result = Database::query($sql);
-        while($row = $result->fetch_assoc())
-        {
-            $data[] = new Mission(
-                $row['missionId'],
-                $row['leaderId'],
-                $row['missionName'],
-                $row['targetArea'],
-                $row['strategy'],
-                $row['status'],
-                $row['dateStart'],
-                $row['dateEnd']
-            );
-        }
-        return $data;
+        return Mission::db_to_object($result);
     }
 
     public static function getById($id)
@@ -57,17 +44,7 @@ class Mission
         ";
         $params = [$id];
         $result = Database::query($sql, $params);
-        $row = $result->fetch_assoc();
-        return new Mission(
-            $row['missionId'],
-            $row['leaderId'],
-            $row['missionName'],
-            $row['targetArea'],
-            $row['strategy'],
-            $row['status'],
-            $row['dateStart'],
-            $row['dateEnd']
-        );
+        return Mission::db_to_object($result)[0];
     }
 
     public static function add($leaderId, $name, $targetArea, $strategy, $status)
@@ -120,20 +97,7 @@ class Mission
                 OR missionId LIKE '%$key%'
         ";
         $result = Database::query($sql);
-        while($row = $result->fetch_assoc())
-        {
-            $data[] = new Mission(
-                $row['missionId'],
-                $row['leaderId'],
-                $row['missionName'],
-                $row['targetArea'],
-                $row['strategy'],
-                $row['status'],
-                $row['dateStart'],
-                $row['dateEnd']
-            );
-        }
-        return $data;
+        return Mission::db_to_object($result);
     }
 
     public static function count($key)
@@ -152,5 +116,34 @@ class Mission
         ";
         $result = Database::query($sql);
         return $result->num_rows;
+    }
+
+    public static function sort($data, $option)
+    {
+        $sql = "
+            SELECT * FROM mission
+            ORDER BY $data $option
+        ";
+        $result = Database::query($sql);
+        return Mission::db_to_object($result);
+    }
+
+    private static function db_to_object($result_query)
+    {
+        $data = [];
+        while ($row = $result_query->fetch_assoc())
+        {
+            $data[] = new Mission(
+                $row['missionId'],
+                $row['leaderId'],
+                $row['missionName'],
+                $row['targetArea'],
+                $row['strategy'],
+                $row['status'],
+                $row['dateStart'],
+                $row['dateEnd']
+            );
+        }
+        return $data;
     }
 }

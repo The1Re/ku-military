@@ -66,12 +66,21 @@
                             <tr class="sticky top-0 bg-gray-100">
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Mission Id
+                                    <a href="?controller=mission&action=sort&title=missionId">
+                                        <i class="fa-solid fa-sort"></i>
+                                    </a>
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Leader Id
+                                    <a href="?controller=mission&action=sort&title=leaderId">
+                                        <i class="fa-solid fa-sort"></i>
+                                    </a>
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Name
+                                    <a href="?controller=mission&action=sort&title=missionName">
+                                        <i class="fa-solid fa-sort"></i>
+                                    </a>
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Target Area
@@ -84,9 +93,15 @@
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Date Start
+                                    <a href="?controller=mission&action=sort&title=dateStart">
+                                        <i class="fa-solid fa-sort"></i>
+                                    </a>
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Date End
+                                    <a href="?controller=mission&action=sort&title=dateEnd">
+                                        <i class="fa-solid fa-sort"></i>
+                                    </a>
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Edit
