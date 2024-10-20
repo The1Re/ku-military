@@ -2,7 +2,7 @@
 
 class MissionController
 {
-    private $status_list = [
+    private $status_style = [
         'InProgress' => 'text-blue-700', 
         'Success' => 'text-green-500', 
         'Failed' => 'text-red-500'
@@ -16,19 +16,22 @@ class MissionController
                 'text' => 'IN PROGRESS MISSION',
                 'count' => Mission::count('InProgress'), 
                 'icon' => 'fa-solid fa-spinner',
-                'color' => 'bg-blue-400'
+                'color' => 'bg-blue',
+                'key' => 'InProgress'
             ],
             [
                 'text' => 'SUCCESS MISSION',
                 'count' => Mission::count('Success'),
                 'icon' => 'fa-solid fa-check',
-                'color' => 'bg-green-400'
+                'color' => 'bg-green',
+                'key' => 'Success'
             ],
             [
                 'text' => 'FAILED MISSION',
                 'count' => Mission::count('Failed'),
                 'icon' => 'fa-solid fa-xmark',
-                'color' => 'bg-red-400'
+                'color' => 'bg-red',
+                'key' => 'Failed'
             ]
         ];
     }
@@ -36,7 +39,7 @@ class MissionController
     public function index()
     {
         $mission_list = Mission::getAll();
-        $status_list = $this->status_list;
+        $status_style = $this->status_style;
 
         $cards = $this->getCardsDetail();
 
@@ -45,7 +48,7 @@ class MissionController
 
     public function addForm()
     {
-        $status_list = $this->status_list;
+        $status_list = $this->status_style;
         $soldier_list = soldier::getAll();
 
         require('views/mission/add_form.php');
@@ -86,7 +89,7 @@ class MissionController
         $mission = Mission::getById($id);
         $soldier_list = soldier::getAll();
         
-        $status_list = $this->status_list;
+        $status_style = $this->status_style;
 
         require('views/mission/edit_form.php');
     }
@@ -110,7 +113,7 @@ class MissionController
     public function search()
     {
         $key = $_GET['key'];
-        $status_list = $this->status_list;
+        $status_style = $this->status_style;
         $cards = $this->getCardsDetail();
 
         $mission_list = Mission::search($key);

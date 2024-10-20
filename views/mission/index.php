@@ -9,7 +9,10 @@
         <!-- Cards Section -->
         <div class="flex items-center overflow-hidden mb-6 space-x-6 py-4">
             <?php foreach($cards as $card) : ?>
-                <div class="<?php echo $card['color']; ?> w-1/3 max-w-sm h-28 rounded-lg shadow-lg p-6">
+                <a 
+                    href="?controller=mission&action=search&key=<?php echo $card['key']; ?>" 
+                    class="<?php echo $card['color']; ?>-400 hover:<?php echo $card['color']; ?>-500 w-1/3 max-w-sm h-28 rounded-lg shadow-lg p-6"
+                >
                     <div class="flex justify-between items-center h-full space-x-4">
                         <div class="text-white font-bold text-3xl text-right">
                             <p><?php echo $card['count']; ?></p>
@@ -19,7 +22,7 @@
                             <p><?php echo $card['text']; ?></p>
                         </div>
                     </div>
-                </div>
+                </a>
             <?php endforeach; ?>
         </div>
 
@@ -97,7 +100,7 @@
                             <?php 
                                 foreach ($mission_list as $mission)
                                 {
-                                    $style = $status_list[$mission->status];
+                                    $style = $status_style[$mission->status];
                                     echo 
                                     '
                                         <tr class="hover:bg-gray-100 transition duration-200">
