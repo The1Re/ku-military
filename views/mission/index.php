@@ -97,43 +97,53 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            <?php 
-                                foreach ($mission_list as $mission)
-                                {
-                                    $style = $status_style[$mission->status];
-                                    echo 
-                                    '
-                                        <tr class="hover:bg-gray-100 transition duration-200">
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">' . $mission->id . '</td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">' . $mission->leaderId . '</td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">' . $mission->name . '</td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">' . $mission->targetArea . '</td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 break-words">' . $mission->strategy . '</td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold ' . $style . '">' . $mission->status . '</td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">' . $mission->dateStart . '</td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">' . $mission->dateEnd . '</td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                                <a 
-                                                    href="?controller=mission&action=editForm&id=' . $mission->id . '" 
-                                                    class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 transition duration-200"
-                                                >
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                    Edit
-                                                </a>
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                                <a 
-                                                    href="?controller=mission&action=deleteForm&id=' . $mission->id . '" 
-                                                    class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 transition duration-200"
-                                                >
-                                                    <i class="fa-solid fa-trash"></i>
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    ';
-                                }
-                            ?>
+                            <?php foreach ($mission_list as $mission) : ?>
+                                <?php $style = $status_style[$mission->status]; ?>
+                                <tr class="hover:bg-gray-100 transition duration-200">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                        <?php echo $mission->id; ?>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        <?php echo $mission->leaderId; ?>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        <?php echo $mission->name; ?>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        <?php echo $mission->targetArea ?>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 break-words">
+                                        <?php echo $mission->strategy; ?>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold <?php echo $style; ?>">
+                                        <?php echo $mission->status; ?>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        <?php echo $mission->dateStart; ?>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        <?php echo $mission->dateEnd ?>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                        <a 
+                                            href="?controller=mission&action=editForm&id=<?php echo $mission->id; ?>" 
+                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 transition duration-200"
+                                        >
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                            Edit
+                                        </a>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                        <a 
+                                            href="?controller=mission&action=deleteForm&id=<?php echo $mission->id; ?>" 
+                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 transition duration-200"
+                                        >
+                                            <i class="fa-solid fa-trash"></i>
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

@@ -59,7 +59,7 @@
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-gray-500"
                         >
                         <?php 
-                            foreach($status_list as $status => $style)
+                            foreach($status_style as $status => $style)
                             {
                                 $selected = ($status == 'InProgress') ? 'selected' : '';
                                 echo '

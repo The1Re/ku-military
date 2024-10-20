@@ -48,7 +48,7 @@ class MissionController
 
     public function addForm()
     {
-        $status_list = $this->status_style;
+        $status_style = $this->status_style;
         $soldier_list = soldier::getAll();
 
         require('views/mission/add_form.php');
