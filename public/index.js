@@ -1,24 +1,27 @@
+
+
+// sidebar handle
 const sidebar = document.getElementById('sidebar');
-const toggleSidebars = document.getElementsByClassName('toggleSidebar');
+const toggleSidebars = document.getElementsByClassName('sidebar-toggle');
 
 for (let i=0; i<toggleSidebars.length; i++)
 {
     const toggleSidebar = toggleSidebars[i];
     toggleSidebar.addEventListener('click', () => {
         const toggleSidebarBtn = document.getElementById('toggleSidebarButton');
-        if (sidebar.classList.contains('w-64')) {
-            //sidebar open to close
-            sidebar.classList.remove('w-64');
-            sidebar.classList.add('w-0');
-        } else {
-            //sidebar close to open
-            sidebar.classList.remove('w-0');
-            sidebar.classList.add('w-64');
-        }
-        toggleSidebarBtn.classList.toggle('hidden');
+
+        const sidebarIsOpen = sidebar.classList.contains('w-64');
+
+        sidebar.classList.toggle('w-64');
+        sidebar.classList.toggle('w-0');
+        
+        setTimeout(() => {
+            toggleSidebarBtn.classList.toggle('hidden');
+        }, sidebarIsOpen ? 150 : 0);
     })
 }
 
+// sidebar toggle menu handle
 const toggle_lists = document.getElementsByClassName('toggle-list');
 for (let i=0; i<toggle_lists.length; i++)
 {
@@ -28,15 +31,8 @@ for (let i=0; i<toggle_lists.length; i++)
         const icon = toggle_list.getElementsByClassName('toggle-icon')[0];
         const dropdown = document.getElementById('dropdown');
 
-        dropdown.classList.toggle("hidden");
-        if (icon.classList.contains('fa-angle-down')) {
-            // show
-            icon.classList.remove('fa-angle-down');
-            icon.classList.add('fa-angle-up');
-        } else {
-            // close
-            icon.classList.remove('fa-angle-up');
-            icon.classList.add('fa-angle-down');
-        }
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('fa-angle-down');
+        icon.classList.toggle('fa-angle-up');
     });
 }
