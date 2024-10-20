@@ -96,7 +96,7 @@ class MissionController
 
     public function edit()
     {
-        if (isset($_POST['action']) && $_POST['action'] != 'cancel') {
+        if (isset($_POST['action']) && $_POST['action'] == 'edit') {
             $id = $_POST['id'];
             $leaderId = $_POST['leaderId'];
             $name = $_POST['name'];

@@ -113,7 +113,7 @@
                 <input type="hidden" name="id" value="<?php echo $mission->id; ?>">
                 <button
                     name="action"
-                    value="add"
+                    value="edit"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     type="submit"
                 >
