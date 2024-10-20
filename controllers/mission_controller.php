@@ -49,7 +49,7 @@ class MissionController
     public function addForm()
     {
         $status_style = $this->status_style;
-        $soldier_list = soldier::getAll();
+        $soldier_list = Soldier::getAll();
 
         require('views/mission/add_form.php');
     }
@@ -87,7 +87,7 @@ class MissionController
     {
         $id = $_GET['id'];
         $mission = Mission::getById($id);
-        $soldier_list = soldier::getAll();
+        $soldier_list = Soldier::getAll();
         
         $status_style = $this->status_style;
 
@@ -103,7 +103,6 @@ class MissionController
             $targetArea = $_POST['targetArea'];
             $strategy = $_POST['strategy'];
             $status = $_POST['status'];
-            $dateEnd = $_POST['dateEnd'] ?? null;
 
             Mission::update($id, $leaderId, $name, $targetArea, $strategy, $status);
         }

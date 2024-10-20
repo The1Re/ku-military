@@ -2,7 +2,7 @@
 
 require_once('utils/database.php');
 
-class soldier
+class Soldier
 {
     public $soldierId, $firstName, $lastName, $rank, $dob, $age, $department;
     public function __construct($soldierId, $firstName, $lastName, $rank, $dob, $age, $department)

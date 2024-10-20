@@ -27,7 +27,7 @@ function call(string $controller, string $action)
             break;
         case 'mission':
             require_once('models/mission.php');
-            require_once('models/soldierModel.php');
+            require_once('models/soldier.php');
             $controller_obj = new MissionController();
             break;
     }
