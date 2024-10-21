@@ -7,14 +7,14 @@ class Mission
     public $id, $leaderId, $name, $targetArea, $strategy, $status, $dateStart, $dateEnd;
 
     public function __construct(
-        $id,
-        $leaderId,
-        $name,
-        $targetArea,
-        $strategy,
-        $status,
-        $dateStart,
-        $dateEnd
+        int $id,
+        int $leaderId,
+        string $name,
+        ?string $targetArea,
+        ?string $strategy,
+        string $status,
+        string $dateStart,
+        ?string $dateEnd
     ) {
         $this->id = $id;
         $this->leaderId = $leaderId;
