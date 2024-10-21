@@ -4,20 +4,20 @@ require_once('utils/database.php');
 
 class Mission
 {
-    public $id, $leaderId, $name, $targetArea, $strategy, $status, $dateStart, $dateEnd;
+    public $id, $leader, $name, $targetArea, $strategy, $status, $dateStart, $dateEnd;
 
     public function __construct(
-        $id,
-        $leaderId,
-        $name,
-        $targetArea,
-        $strategy,
-        $status,
-        $dateStart,
-        $dateEnd
+        int $id,
+        Soldier $leader,
+        string $name,
+        string $targetArea,
+        string $strategy,
+        string $status,
+        string $dateStart,
+        ?string $dateEnd
     ) {
         $this->id = $id;
-        $this->leaderId = $leaderId;
+        $this->leader = $leader;
         $this->name = $name;
         $this->targetArea = $targetArea;
         $this->strategy = $strategy;
@@ -31,6 +31,7 @@ class Mission
         $data = [];
         $sql = "
             SELECT * FROM mission
+            INNER JOIN soldier ON soldier.soldierId = mission.leaderId
         ";
         $result = Database::query($sql);
         return Mission::db_to_object($result);
@@ -40,6 +41,7 @@ class Mission
     {
         $sql = "
             SELECT * FROM mission
+            INNER JOIN soldier ON soldier.soldierId = mission.leaderId
             WHERE missionId = ?
         ";
         $params = [$id];
@@ -86,9 +88,10 @@ class Mission
         $data = [];
         $sql = "
             SELECT * FROM mission
+            INNER JOIN soldier ON soldier.soldierId = mission.leaderId
             WHERE 
                 missionName LIKE '%$key%' 
-                OR leaderId LIKE '%$key%' 
+                OR CONCAT(firstName, ' ', lastName) LIKE '%$key%'
                 OR targetArea LIKE '%$key%' 
                 OR strategy LIKE '%$key%' 
                 OR status LIKE '%$key%'
@@ -104,9 +107,10 @@ class Mission
     {
         $sql = "
             SELECT * FROM mission
+            INNER JOIN soldier ON soldier.soldierId = mission.leaderId
             WHERE 
                 missionName LIKE '%$key%' 
-                OR leaderId LIKE '%$key%' 
+                OR CONCAT(firstName, ' ', lastName) LIKE '%$key%'
                 OR targetArea LIKE '%$key%' 
                 OR strategy LIKE '%$key%' 
                 OR status LIKE '%$key%'
@@ -122,6 +126,7 @@ class Mission
     {
         $sql = "
             SELECT * FROM mission
+            INNER JOIN soldier ON soldier.soldierId = mission.leaderId
             ORDER BY $data $option
         ";
         $result = Database::query($sql);
@@ -135,7 +140,15 @@ class Mission
         {
             $data[] = new Mission(
                 $row['missionId'],
-                $row['leaderId'],
+                new Soldier(
+                    $row['soldierId'],
+                    $row['firstName'],
+                    $row['lastName'],
+                    $row['rank'],
+                    $row['dob'],
+                    (new DateTime())->diff(new DateTime($row['dob']))->y,
+                    $row['department']
+                ),
                 $row['missionName'],
                 $row['targetArea'],
                 $row['strategy'],

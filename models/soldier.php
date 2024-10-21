@@ -16,6 +16,11 @@ class Soldier
         $this->department = $department;
     }
 
+    public function getName()
+    {
+        return $this->firstName . ' ' . $this->lastName;
+    }
+
     public static function get($id)
     {
         $sql = "SELECT soldierId,firstName,lastName,rank,dob,FLOOR(DATEDIFF(CURDATE(), dob) / 365) AS age,department FROM Soldier

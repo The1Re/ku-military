@@ -35,7 +35,7 @@
                         <?php
                             foreach($soldier_list as $soldier)
                             {
-                                $selected = ($soldier->soldierId == $mission->leaderId) ? 'selected' : '';
+                                $selected = ($soldier->soldierId == $mission->leader->soldierId) ? 'selected' : '';
                                 echo '
                                     <option 
                                         value="'.$soldier->soldierId.'"

@@ -71,7 +71,7 @@
                                     </a>
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    Leader Id
+                                    Leader
                                     <a href="?controller=mission&action=sort&title=leaderId">
                                         <i class="fa-solid fa-sort"></i>
                                     </a>
@@ -119,7 +119,7 @@
                                         <?php echo $mission->id; ?>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                        <?php echo $mission->leaderId; ?>
+                                        <?php echo $mission->leader->getName(); ?>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                         <?php echo $mission->name; ?>
