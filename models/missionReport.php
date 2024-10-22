@@ -24,7 +24,6 @@ class MissionReport
         $sql = "
             SELECT * FROM missionreport
         ";
-
         $result = Database::query($sql);
         return MissionReport::db_to_object($result);
     }
@@ -41,7 +40,6 @@ class MissionReport
                 $row['date']
             );
         }
-
         return $data;
     }
 }

@@ -28,7 +28,6 @@ class Mission
 
     public static function getAll()
     {
-        $data = [];
         $sql = "
             SELECT * FROM mission
         ";
@@ -83,7 +82,6 @@ class Mission
 
     public static function search($key)
     {
-        $data = [];
         $sql = "
             SELECT * FROM mission
             WHERE 
