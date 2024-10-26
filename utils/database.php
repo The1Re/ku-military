@@ -1,11 +1,9 @@
 <?php
 
+require_once('config.php');
+
 class Database
 {
-    private static $hostname = 'localhost';
-    private static $username = 'root';
-    private static $password = '';
-    private static $database = 'db24_004_military';
     private static $connection = null;
 
     /**
@@ -16,10 +14,10 @@ class Database
     public static function connect(): mysqli
     {
         Database::$connection = new mysqli(
-            Database::$hostname,
-            Database::$username,
-            Database::$password,
-            Database::$database
+            DB_HOSTNAME,
+            DB_USERNAME,
+            DB_PASSWORD,
+            DB_DATABASE
         );
         
         if (Database::$connection->connect_error)
