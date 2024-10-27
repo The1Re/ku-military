@@ -36,11 +36,11 @@ class MissionController
         ];
     }
 
-    public function index()
+    public function index(array $mission_list = null)
     {
-        $mission_list = Mission::getAll();
-        $status_style = $this->status_style;
+        $mission_list = $mission_list ?? Mission::getAll();
 
+        $status_style = $this->status_style;
         $cards = $this->getCardsDetail();
 
         require('views/mission/index.php');
@@ -78,8 +78,8 @@ class MissionController
     public function delete()
     {
         $id = $_GET['id'];
-
         Mission::delete($id);
+        
         $this->index();
     }
 
@@ -112,20 +112,16 @@ class MissionController
     public function search()
     {
         $key = $_GET['key'];
-        $status_style = $this->status_style;
-        $cards = $this->getCardsDetail();
-
         $mission_list = Mission::search($key);
-        require('views/mission/index.php');
+
+        $this->index($mission_list);
     }
 
     public function sort()
     {
         $title = $_GET['title'];
-        $status_style = $this->status_style;
-        $cards = $this->getCardsDetail();
-
         $mission_list = Mission::sort($title, 'DESC');
-        require('views/mission/index.php');
+
+        $this->index($mission_list);
     }
 }
