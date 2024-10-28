@@ -63,22 +63,31 @@
                 <div class="border rounded-lg shadow-md overflow-y-auto max-h-[60vh]">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead>
+                            <?php 
+                                function get_option_sortby($sortby) 
+                                {
+                                    return isset($_GET['sortby']) 
+                                            && $_GET['sortby'] == $sortby 
+                                            && $_GET['option'] == 'DESC' 
+                                            ? 'ASC' : 'DESC';
+                                }
+                            ?>
                             <tr class="sticky top-0 bg-gray-100">
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Mission Id
-                                    <a href="?controller=mission&action=sort&title=missionId">
+                                    <a href="?controller=mission&action=sort&sortby=missionId&option=<?php echo get_option_sortby('missionId'); ?>">
                                         <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Leader Id
-                                    <a href="?controller=mission&action=sort&title=leaderId">
-                                        <i class="fa-solid fa-sort"></i>
+                                    <a href="?controller=mission&action=sort&sortby=leaderId&option=<?php echo get_option_sortby('leaderId'); ?>">
+                                    <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Name
-                                    <a href="?controller=mission&action=sort&title=missionName">
+                                    <a href="?controller=mission&action=sort&sortby=missionName&option=<?php echo get_option_sortby('missionName'); ?>">
                                         <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>
@@ -93,13 +102,13 @@
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Date Start
-                                    <a href="?controller=mission&action=sort&title=dateStart">
+                                    <a href="?controller=mission&action=sort&sortby=dateStart&option=<?php echo get_option_sortby('dateStart'); ?>">
                                         <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Date End
-                                    <a href="?controller=mission&action=sort&title=dateEnd">
+                                    <a href="?controller=mission&action=sort&sortby=dateEnd&option=<?php echo get_option_sortby('dateEnd'); ?>">
                                         <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>

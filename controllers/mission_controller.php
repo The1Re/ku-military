@@ -119,8 +119,9 @@ class MissionController
 
     public function sort()
     {
-        $title = $_GET['title'];
-        $mission_list = Mission::sort($title, 'DESC');
+        $sortby = $_GET['sortby'];
+        $option = $_GET['option'];
+        $mission_list = Mission::sort($sortby, $option);
 
         $this->index($mission_list);
     }
