@@ -2,7 +2,7 @@
     <i class="fa-solid fa-bars"></i>
 </div>
 
-<div class="flex flex-col w-64 bg-white h-screen border-r transition-all duration-300 overflow-hidden" id="sidebar">
+<div class="flex flex-col w-64 bg-white h-screen border-r transition-all duration-300" id="sidebar">
     <div class="sidebar-toggle prevent-select flex items-center h-14 border-b px-4 space-x-2 hover:cursor-pointer">
         <label class="text-gray-700 text-center text-xl font-bold hover:cursor-pointer truncate">
             KU <span class="text-blue-500">Military</span>

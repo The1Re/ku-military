@@ -61,7 +61,7 @@
         <div class="flex flex-col overflow-hidden max-h-[60vh]">
             <div class="max-w-full inline-block align-middle">
                 <div class="border rounded-lg shadow-md overflow-y-auto max-h-[60vh]">
-                    <table class="min-w-full divide-y divide-gray-200">
+                    <table class="min-w-full divide-y divide-gray-200 table-fixed">
                         <thead>
                             <?php 
                                 function get_option_sortby($sortby) 
@@ -73,7 +73,7 @@
                                 }
                             ?>
                             <tr class="sticky top-0 bg-gray-100">
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider max-w-32">
                                     Mission Id
                                     <a href="?controller=mission&action=sort&sortby=missionId&option=<?php echo get_option_sortby('missionId'); ?>">
                                         <i class="fa-solid fa-sort"></i>
@@ -94,7 +94,7 @@
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Target Area
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider max-w-2">
                                     Strategy
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
@@ -124,7 +124,7 @@
                             <?php foreach ($mission_list as $mission) : ?>
                                 <?php $style = $status_style[$mission->status]; ?>
                                 <tr class="hover:bg-gray-100 transition duration-200">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 max-w-32">
                                         <?php echo $mission->id; ?>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -136,7 +136,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                         <?php echo $mission->targetArea ?>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 break-words">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 break-words max-w-96 text-wrap">
                                         <?php echo $mission->strategy; ?>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold <?php echo $style; ?>">
