@@ -61,7 +61,7 @@
         <div class="flex flex-col overflow-hidden max-h-[60vh]">
             <div class="max-w-full inline-block align-middle">
                 <div class="border rounded-lg shadow-md overflow-y-auto max-h-[60vh]">
-                    <table class="min-w-full divide-y divide-gray-200 table-fixed">
+                    <table class="min-w-full divide-y divide-gray-200 table-fixed border">
                         <thead>
                             <?php 
                                 function get_option_sortby($sortby) 
@@ -73,49 +73,49 @@
                                 }
                             ?>
                             <tr class="sticky top-0 bg-gray-100">
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider max-w-32">
+                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider max-w-32">
                                     Mission Id
                                     <a href="?controller=mission&action=sort&sortby=missionId&option=<?php echo get_option_sortby('missionId'); ?>">
                                         <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Leader Id
                                     <a href="?controller=mission&action=sort&sortby=leaderId&option=<?php echo get_option_sortby('leaderId'); ?>">
                                     <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Name
                                     <a href="?controller=mission&action=sort&sortby=missionName&option=<?php echo get_option_sortby('missionName'); ?>">
                                         <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Target Area
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider max-w-2">
+                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider max-w-96">
                                     Strategy
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Status
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Date Start
                                     <a href="?controller=mission&action=sort&sortby=dateStart&option=<?php echo get_option_sortby('dateStart'); ?>">
                                         <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     Date End
                                     <a href="?controller=mission&action=sort&sortby=dateEnd&option=<?php echo get_option_sortby('dateEnd'); ?>">
                                         <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class="border-r px-6 py-3 text-center text-xs font-medium text-gray-700 uppercase tracking-wider max-w-24">
                                     Edit
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class="border-r px-6 py-3 text-center text-xs font-medium text-gray-700 uppercase tracking-wider max-w-24">
                                     Delete
                                 </th>
                             </tr>
@@ -124,31 +124,31 @@
                             <?php foreach ($mission_list as $mission) : ?>
                                 <?php $style = $status_style[$mission->status]; ?>
                                 <tr class="hover:bg-gray-100 transition duration-200">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 max-w-32">
+                                    <td class="border-r px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 max-w-32">
                                         <?php echo $mission->id; ?>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                         <?php echo $mission->leaderId; ?>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                         <?php echo $mission->name; ?>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                         <?php echo $mission->targetArea ?>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 break-words max-w-96 text-wrap">
+                                    <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900 break-words max-w-96 text-wrap">
                                         <?php echo $mission->strategy; ?>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold <?php echo $style; ?>">
+                                    <td class="border-r px-6 py-4 whitespace-nowrap text-sm font-semibold <?php echo $style; ?>">
                                         <?php echo $mission->status; ?>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                         <?php echo $mission->dateStart; ?>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                         <?php echo $mission->dateEnd ?>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                    <td class="border-r px-6 py-4 whitespace-nowrap text-end text-sm font-medium max-w-24">
                                         <a 
                                             href="?controller=mission&action=editForm&id=<?php echo $mission->id; ?>" 
                                             class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 transition duration-200"
@@ -157,7 +157,7 @@
                                             Edit
                                         </a>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                    <td class="border-r px-6 py-4 whitespace-nowrap text-end text-sm font-medium max-w-24">
                                         <a 
                                             href="?controller=mission&action=deleteForm&id=<?php echo $mission->id; ?>" 
                                             class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 transition duration-200"
