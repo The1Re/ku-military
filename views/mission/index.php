@@ -72,51 +72,48 @@
                                             ? 'ASC' : 'DESC';
                                 }
                             ?>
-                            <tr class="sticky top-0 bg-gray-100">
-                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider max-w-32">
+                            <tr class="sticky top-0 bg-blue-400">
+                                <th scope="col" class=" px-6 py-3 text-start text-xs font-bold text-white uppercase tracking-wider max-w-32">
                                     Mission Id
                                     <a href="?controller=mission&action=sort&sortby=missionId&option=<?php echo get_option_sortby('missionId'); ?>">
                                         <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>
-                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class=" px-6 py-3 text-start text-xs font-bold text-white uppercase tracking-wider">
                                     Leader Id
                                     <a href="?controller=mission&action=sort&sortby=leaderId&option=<?php echo get_option_sortby('leaderId'); ?>">
                                     <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>
-                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class=" px-6 py-3 text-start text-xs font-bold text-white uppercase tracking-wider">
                                     Name
                                     <a href="?controller=mission&action=sort&sortby=missionName&option=<?php echo get_option_sortby('missionName'); ?>">
                                         <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>
-                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class=" px-6 py-3 text-start text-xs font-bold text-white uppercase tracking-wider">
                                     Target Area
                                 </th>
-                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider max-w-96">
+                                <th scope="col" class=" px-6 py-3 text-start text-xs font-bold text-white uppercase tracking-wider max-w-96">
                                     Strategy
                                 </th>
-                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class=" px-6 py-3 text-start text-xs font-bold text-white uppercase tracking-wider">
                                     Status
                                 </th>
-                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class=" px-6 py-3 text-start text-xs font-bold text-white uppercase tracking-wider">
                                     Date Start
                                     <a href="?controller=mission&action=sort&sortby=dateStart&option=<?php echo get_option_sortby('dateStart'); ?>">
                                         <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>
-                                <th scope="col" class="border-r px-6 py-3 text-start text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                <th scope="col" class=" px-6 py-3 text-start text-xs font-bold text-white uppercase tracking-wider">
                                     Date End
                                     <a href="?controller=mission&action=sort&sortby=dateEnd&option=<?php echo get_option_sortby('dateEnd'); ?>">
                                         <i class="fa-solid fa-sort"></i>
                                     </a>
                                 </th>
-                                <th scope="col" class="border-r px-6 py-3 text-center text-xs font-medium text-gray-700 uppercase tracking-wider max-w-24">
-                                    Edit
-                                </th>
-                                <th scope="col" class="border-r px-6 py-3 text-center text-xs font-medium text-gray-700 uppercase tracking-wider max-w-24">
-                                    Delete
+                                <th scope="col" class=" px-6 py-3 text-center text-xs font-bold text-white uppercase tracking-wider">
+                                    Action
                                 </th>
                             </tr>
                         </thead>
@@ -148,7 +145,7 @@
                                     <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                         <?php echo $mission->dateEnd ?>
                                     </td>
-                                    <td class="border-r px-6 py-4 whitespace-nowrap text-end text-sm font-medium max-w-24">
+                                    <td class="border-r py-4 px-2 whitespace-nowrap text-center space-x-6 text-sm font-medium">
                                         <a 
                                             href="?controller=mission&action=editForm&id=<?php echo $mission->id; ?>" 
                                             class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 transition duration-200"
@@ -156,8 +153,13 @@
                                             <i class="fa-regular fa-pen-to-square"></i>
                                             Edit
                                         </a>
-                                    </td>
-                                    <td class="border-r px-6 py-4 whitespace-nowrap text-end text-sm font-medium max-w-24">
+                                        <a 
+                                            href="?controller=missionReport&action=index&id=<?php echo $mission->id; ?>" 
+                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-yellow-600 hover:text-yellow-800 focus:outline-none focus:text-yellow-800 transition duration-200"
+                                        >
+                                            <i class="fa-solid fa-bullhorn"></i>
+                                            Report
+                                        </a>
                                         <a 
                                             href="?controller=mission&action=deleteForm&id=<?php echo $mission->id; ?>" 
                                             class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 transition duration-200"
