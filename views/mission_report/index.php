@@ -2,41 +2,48 @@
     <div class="flex flex-col lg:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
         <!-- Mission Section -->
         <div class="lg:w-1/3 p-6 bg-blue-300">
-            <form class="flex flex-row flex-wrap">
+            <form method="GET" class="flex flex-row flex-wrap">
                 <h2 class="text-2xl font-bold mb-2 mr-4">Mission ID</h2>
                 <input 
+                    name="missionId"
                     type="text" 
                     class="min:w-1/3 mr-4 mb-2 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-gray-500" 
+                    value="<?php echo $missionId; ?>"
                 />
+                <input type="hidden" name="controller" value="missionReport">
                 <button 
                     type="submit"
+                    name="action"
+                    value="index"
                     class="min:w-1/3 mb-2 bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 >
                     Get
                 </button>
             </form>
-            <?php $isIdSet = true; if($isIdSet) :?>
+            <?php if(isset($mission) && $mission) :?>
                 <ul class="space-y-2">
-                    <li><span class="font-semibold">Title : </span>raid enem</li>
-                    <li><span class="font-semibold">Status : </span>Success</li>
-                    <li><span class="font-semibold">Leader ID : </span>1</li>
-                    <li><span class="font-semibold">Target Area : </span>jpan</li>
-                    <li><span class="font-semibold">Date Start : </span>2024-10-18 23:01:57</li>
-                    <?php $dateEnd = true; if ($dateEnd) : ?> 
-                        <li><span class="font-semibold">Date End : </span>2024-11-02 21:08:17</li>
+                    <li><span class="font-semibold">Title : </span><?php echo $mission->name; ?></li>
+                    <li><span class="font-semibold">Status : </span><?php echo $mission->status; ?></li>
+                    <li><span class="font-semibold">Leader ID : </span><?php echo $mission->leaderId; ?></li>
+                    <li><span class="font-semibold">Target Area : </span><?php echo $mission->targetArea; ?></li>
+                    <li><span class="font-semibold">Date Start : </span><?php echo $mission->dateStart; ?></li>
+                    <?php if ($mission->dateEnd) : ?> 
+                        <li><span class="font-semibold">Date End : </span><?php echo $mission->dateEnd; ?></li>
                     <?php endif; ?>
                     <li>
                         <label class="font-semibold">Strategy : </label>
-                        <div class="max-w-96 text-wrap break-words">yoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyoooyoyooo</div>
+                        <div class="max-w-96 text-wrap break-words"><?php echo $mission->strategy; ?></div>
                     </li>
                 </ul>
+            <?php elseif(isset($error) && $error) : ?>
+                <h1 class="text-lg"><?php echo $error; ?></h1>
             <?php else : ?>
                 <h1 class="text-lg">Please select mission before</h1>
             <?php endif; ?>
         </div>
         
         <!-- Mission Report Section -->
-        <div class="lg:w-2/3 p-6">
+        <div class="lg:w-2/3 p-6 <?php if(!$mission_report_list) echo "hidden"; ?>">
             <h2 class="text-2xl font-bold mb-2">Mission Report</h2>
             <div class="mb-4">
                 <p>Report summary for Mission A:</p>

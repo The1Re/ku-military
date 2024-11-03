@@ -154,7 +154,7 @@
                                             Edit
                                         </a>
                                         <a 
-                                            href="?controller=missionReport&action=index&id=<?php echo $mission->id; ?>" 
+                                            href="?controller=missionReport&action=index&missionId=<?php echo $mission->id; ?>" 
                                             class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-yellow-600 hover:text-yellow-800 focus:outline-none focus:text-yellow-800 transition duration-200"
                                         >
                                             <i class="fa-solid fa-bullhorn"></i>

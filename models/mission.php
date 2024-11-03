@@ -43,7 +43,8 @@ class Mission
         ";
         $params = [$id];
         $result = Database::query($sql, $params);
-        return Mission::db_to_object($result)[0];
+        $mission = Mission::db_to_object($result);
+        return $mission ? $mission[0] : null;
     }
 
     public static function add($leaderId, $name, $targetArea, $strategy, $status)
