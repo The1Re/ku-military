@@ -7,10 +7,10 @@ class MissionReport
     public $id, $missionId, $detail, $date;
 
     public function __construct(
-        int $id, 
-        int $missionId, 
-        ?string $detail, 
-        string $date
+        $id, 
+        $missionId, 
+        $detail, 
+        $date
     )
     {
         $this->id = $id;
