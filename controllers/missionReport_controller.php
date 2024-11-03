@@ -16,8 +16,7 @@ class MissionReportController
                 $error = "There is no mission id in database!";
                 goto end;
             }
-            // $mission_report_list = MissionReport::getBy("missionId", $missionId);
-            $mission_report_list = true;
+            $mission_report_list = MissionReport::getBy("missionId", $missionId);
         }
         
         end:
