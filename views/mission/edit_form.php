@@ -62,12 +62,12 @@
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-gray-500"
                         >
                         <?php 
-                            foreach($status_style as $status => $style)
+                            foreach(getStatusStyle() as $status => $style)
                             {
                                 $selected = ($status == $mission->status) ? 'selected' : '';
                                 echo '
                                     <option 
-                                        class="'. $style .'"
+                                        class="text-'. $style .'"
                                         value="'.$status.'"
                                         '. $selected .'
                                     >'

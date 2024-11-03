@@ -1,12 +1,9 @@
 <?php
 
+require_once('utils/helper.php');
+
 class MissionController
 {
-    private $status_style = [
-        'InProgress' => 'text-blue-700', 
-        'Success' => 'text-green-500', 
-        'Failed' => 'text-red-500'
-    ];
 
     private function getCardsDetail()
     {
@@ -40,7 +37,6 @@ class MissionController
     {
         $mission_list = $mission_list ?? Mission::getAll();
 
-        $status_style = $this->status_style;
         $cards = $this->getCardsDetail();
 
         require('views/mission/index.php');
@@ -48,7 +44,6 @@ class MissionController
 
     public function addForm()
     {
-        $status_style = $this->status_style;
         $soldier_list = Soldier::getAll();
 
         require('views/mission/add_form.php');
@@ -88,8 +83,6 @@ class MissionController
         $id = $_GET['id'];
         $mission = Mission::getById($id);
         $soldier_list = Soldier::getAll();
-        
-        $status_style = $this->status_style;
 
         require('views/mission/edit_form.php');
     }
@@ -119,8 +112,9 @@ class MissionController
 
     public function sort()
     {
-        $title = $_GET['title'];
-        $mission_list = Mission::sort($title, 'DESC');
+        $sortby = $_GET['sortby'];
+        $option = $_GET['option'];
+        $mission_list = Mission::sort($sortby, $option);
 
         $this->index($mission_list);
     }

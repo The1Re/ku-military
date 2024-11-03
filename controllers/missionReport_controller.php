@@ -1,10 +1,25 @@
 <?php
 
+require_once('utils/helper.php');
+
 class MissionReportController
 {
     public function index()
     {
-        $data = MissionReport::getAll();
-        print_r($data);
+        $missionId = $_GET['missionId'] ?? null;
+        $mission = null;
+        $error = null;
+
+        if ($missionId) {
+            $mission = Mission::getById($missionId);
+            if (!$mission) {
+                $error = "There is no mission id in database!";
+                goto end;
+            }
+            $mission_report_list = MissionReport::getBy("missionId", $missionId);
+        }
+        
+        end:
+        require('views/mission_report/index.php');
     }
 }

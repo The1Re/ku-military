@@ -38,6 +38,16 @@ class MissionReport
         $result = Database::query($sql, $params);
         return MissionReport::db_to_object($result);
     }
+
+    public static function getBy($data, $value)
+    {
+        $sql = "
+            SELECT * FROM missionreport
+            WHERE $data = $value
+        ";
+        $result = Database::query($sql);
+        return MissionReport::db_to_object($result);
+    }
     
     public static function add($missionId, $detail, $date)
     {
