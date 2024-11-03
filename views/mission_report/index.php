@@ -1,16 +1,16 @@
 <div class="container mx-auto px-6 py-12">
     <div class="flex flex-col lg:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
-        <!-- Mission Information Section -->
+        <!-- Mission Section -->
         <div class="lg:w-1/3 p-6 bg-blue-300">
-            <form class="flex flex-row lg:space-x-4 pb-4 flex-wrap">
-                <h2 class="text-2xl font-bold mb-2">Mission ID</h2>
+            <form class="flex flex-row flex-wrap">
+                <h2 class="text-2xl font-bold mb-2 mr-4">Mission ID</h2>
                 <input 
                     type="text" 
-                    class="shadow appearance-none border rounded h-8 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-gray-500" 
+                    class="min:w-1/3 mr-4 mb-2 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-gray-500" 
                 />
                 <button 
                     type="submit"
-                    class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    class="min:w-1/3 mb-2 bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 >
                     Get
                 </button>
@@ -46,38 +46,6 @@
                 </ul>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-gray-50 p-4 rounded shadow">
-                    <h3 class="font-semibold">Additional Details 1</h3>
-                    <p>Details about this section of the report.</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded shadow">
-                    <h3 class="font-semibold">Additional Details 2</h3>
-                    <p>Details about another aspect of the mission report.</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded shadow">
-                    <h3 class="font-semibold">Additional Details 1</h3>
-                    <p>Details about this section of the report.</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded shadow">
-                    <h3 class="font-semibold">Additional Details 2</h3>
-                    <p>Details about another aspect of the mission report.</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded shadow">
-                    <h3 class="font-semibold">Additional Details 1</h3>
-                    <p>Details about this section of the report.</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded shadow">
-                    <h3 class="font-semibold">Additional Details 2</h3>
-                    <p>Details about another aspect of the mission report.</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded shadow">
-                    <h3 class="font-semibold">Additional Details 1</h3>
-                    <p>Details about this section of the report.</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded shadow">
-                    <h3 class="font-semibold">Additional Details 2</h3>
-                    <p>Details about another aspect of the mission report.</p>
-                </div>
                 <div class="bg-gray-50 p-4 rounded shadow">
                     <h3 class="font-semibold">Additional Details 1</h3>
                     <p>Details about this section of the report.</p>
