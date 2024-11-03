@@ -22,17 +22,39 @@
             </form>
             <?php if(isset($mission) && $mission) :?>
                 <ul class="space-y-2 mb-8 mt-2">
-                    <li><span class="font-semibold">Title : </span><?php echo $mission->name; ?></li>
-                    <li><span class="font-semibold">Status : </span><?php echo $mission->status; ?></li>
-                    <li><span class="font-semibold">Leader ID : </span><?php echo $mission->leaderId; ?></li>
-                    <li><span class="font-semibold">Target Area : </span><?php echo $mission->targetArea; ?></li>
-                    <li><span class="font-semibold">Date Start : </span><?php echo $mission->dateStart; ?></li>
+                    <li>
+                        <label class="font-semibold">Title : </label>
+                        <span><?php echo $mission->name; ?></span>
+                    </li>
+                    <li>
+                        <label class="font-semibold">Status : </label>
+                        <span 
+                            class="px-4 font-medium text-white text-base rounded-lg bg-<?php echo getStatusStyle($mission->status); ?>"
+                        >
+                            <?php echo $mission->status; ?>
+                        </span>
+                    </li>
+                    <li>
+                        <label class="font-semibold">Leader ID : </label>
+                        <?php echo $mission->leaderId; ?>
+                    </li>
+                    <li>
+                        <label class="font-semibold">Target Area : </label>
+                        <span><?php echo $mission->targetArea; ?></span>
+                    </li>
+                    <li>
+                        <label class="font-semibold">Date Start : </label>
+                        <span><?php echo $mission->dateStart; ?></span>
+                    </li>
                     <?php if ($mission->dateEnd) : ?> 
-                        <li><span class="font-semibold">Date End : </span><?php echo $mission->dateEnd; ?></li>
+                        <li>
+                            <label class="font-semibold">Date End : </label>
+                            <span><?php echo $mission->dateEnd; ?></span>
+                        </li>
                     <?php endif; ?>
                     <li>
                         <label class="font-semibold">Strategy : </label>
-                        <div class="max-w-96 text-wrap break-words"><?php echo $mission->strategy; ?></div>
+                        <span class="max-w-96 text-wrap break-words"><?php echo $mission->strategy; ?></span>
                     </li>
                 </ul>
                 <div class="flex flex-row-reverse">

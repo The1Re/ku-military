@@ -64,7 +64,7 @@
                                 $selected = ($status == 'InProgress') ? 'selected' : '';
                                 echo '
                                     <option 
-                                        class="'. $style .'"
+                                        class="text-'. $style .'"
                                         value="'.$status.'"
                                         '. $selected .'
                                     >'

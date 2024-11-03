@@ -1,5 +1,7 @@
 <?php
 
+require_once('utils/helper.php');
+
 class MissionReportController
 {
     public function index()

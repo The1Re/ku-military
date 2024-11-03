@@ -67,7 +67,7 @@
                                 $selected = ($status == $mission->status) ? 'selected' : '';
                                 echo '
                                     <option 
-                                        class="'. $style .'"
+                                        class="text-'. $style .'"
                                         value="'.$status.'"
                                         '. $selected .'
                                     >'

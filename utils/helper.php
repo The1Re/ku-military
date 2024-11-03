@@ -11,9 +11,9 @@
 function getStatusStyle(string $status = null)
 {
     $status_style = [
-        'InProgress' => 'text-blue-700', 
-        'Success' => 'text-green-500', 
-        'Failed' => 'text-red-500'
+        'InProgress' => 'blue-700', 
+        'Success' => 'green-500', 
+        'Failed' => 'red-500'
     ];
     return $status ? $status_style[$status] : $status_style;
 }

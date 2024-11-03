@@ -136,7 +136,7 @@
                                     <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900 break-words max-w-96 text-wrap">
                                         <?php echo $mission->strategy; ?>
                                     </td>
-                                    <td class="border-r px-6 py-4 whitespace-nowrap text-sm font-semibold <?php echo $style; ?>">
+                                    <td class="border-r px-6 py-4 whitespace-nowrap text-sm font-semibold text-<?php echo $style; ?>">
                                         <?php echo $mission->status; ?>
                                     </td>
                                     <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900">
