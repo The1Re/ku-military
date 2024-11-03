@@ -39,7 +39,7 @@ class Mission
     {
         $sql = "
             SELECT * FROM mission
-            WHERE missionId = ?
+            WHERE mission_id = ?
         ";
         $params = [$id];
         $result = Database::query($sql, $params);
@@ -50,7 +50,7 @@ class Mission
     public static function add($leaderId, $name, $targetArea, $strategy, $status)
     {
         $sql = "
-            INSERT INTO mission(leaderId, missionName, targetArea, strategy, status)
+            INSERT INTO mission(leader_id, mission_name, target_area, strategy, status)
             VALUES (?, ?, ?, ?, ?)
         ";
         $params = [$leaderId, $name, $targetArea, $strategy, $status];
@@ -62,8 +62,8 @@ class Mission
     {
         $sql = "
             UPDATE mission
-            SET leaderId = ?, missionName = ?, targetArea = ?, strategy = ?, status = ?, dateEnd = ?
-            WHERE missionId = ?
+            SET leader_id = ?, mission_name = ?, target_area = ?, strategy = ?, status = ?, date_end = ?
+            WHERE mission_id = ?
         ";
         $dateEnd = $status == 'Success' || $status == 'Failed' ? date("Y-m-d H:i:s") : null;
         $params = [$leaderId, $name, $targetArea, $strategy, $status, $dateEnd, $id];
@@ -74,7 +74,7 @@ class Mission
     public static function delete($id)
     {
         $sql = "
-            DELETE FROM mission WHERE missionId = ?
+            DELETE FROM mission WHERE mission_id = ?
         ";
         $params = [$id];
         $result = Database::query($sql, $params);
@@ -86,14 +86,14 @@ class Mission
         $sql = "
             SELECT * FROM mission
             WHERE 
-                missionName LIKE '%$key%' 
-                OR leaderId LIKE '%$key%' 
-                OR targetArea LIKE '%$key%' 
+                mission_name LIKE '%$key%' 
+                OR leader_id LIKE '%$key%' 
+                OR target_area LIKE '%$key%' 
                 OR strategy LIKE '%$key%' 
                 OR status LIKE '%$key%'
-                OR dateStart LIKE '%$key%'
-                OR dateEnd LIKE '%$key%'
-                OR missionId LIKE '%$key%'
+                OR date_start LIKE '%$key%'
+                OR date_end LIKE '%$key%'
+                OR mission_id LIKE '%$key%'
         ";
         $result = Database::query($sql);
         return Mission::db_to_object($result);
@@ -104,14 +104,14 @@ class Mission
         $sql = "
             SELECT * FROM mission
             WHERE 
-                missionName LIKE '%$key%' 
-                OR leaderId LIKE '%$key%' 
-                OR targetArea LIKE '%$key%' 
+                mission_name LIKE '%$key%' 
+                OR leader_id LIKE '%$key%' 
+                OR target_area LIKE '%$key%' 
                 OR strategy LIKE '%$key%' 
                 OR status LIKE '%$key%'
-                OR dateStart LIKE '%$key%'
-                OR dateEnd LIKE '%$key%'
-                OR missionId LIKE '%$key%'
+                OR date_start LIKE '%$key%'
+                OR date_end LIKE '%$key%'
+                OR mission_id LIKE '%$key%'
         ";
         $result = Database::query($sql);
         return $result->num_rows;
@@ -133,14 +133,14 @@ class Mission
         while ($row = $result_query->fetch_assoc())
         {
             $data[] = new Mission(
-                $row['missionId'],
-                $row['leaderId'],
-                $row['missionName'],
-                $row['targetArea'],
+                $row['mission_id'],
+                $row['leader_id'],
+                $row['mission_name'],
+                $row['target_area'],
                 $row['strategy'],
                 $row['status'],
-                $row['dateStart'],
-                $row['dateEnd']
+                $row['date_start'],
+                $row['date_end']
             );
         }
         return $data;

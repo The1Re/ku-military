@@ -35,12 +35,12 @@ class Soldier
     public static function getAll()
     {
         $soldierList = [];
-        $sql = "select soldierId,firstName,lastName,rank,dob,FLOOR(DATEDIFF(CURDATE(), dob) / 365) AS age,department FROM Soldier";
+        $sql = "select soldier_id,first_name,last_name,rank,dob,FLOOR(DATEDIFF(CURDATE(), dob) / 365) AS age,department FROM soldier";
         $result = Database::query($sql);
         while ($my_row = $result->fetch_assoc()) {
-            $a = $my_row['soldierId'];
-            $b = $my_row['firstName'];
-            $c = $my_row['lastName'];
+            $a = $my_row['soldier_id'];
+            $b = $my_row['first_name'];
+            $c = $my_row['last_name'];
             $d = $my_row['rank'];
             $f = $my_row['dob'];
             $g = $my_row['age'];
