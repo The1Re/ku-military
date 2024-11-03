@@ -119,7 +119,7 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             <?php foreach ($mission_list as $mission) : ?>
-                                <?php $style = $status_style[$mission->status]; ?>
+                                <?php $style = getStatusStyle($mission->status); ?>
                                 <tr class="hover:bg-gray-100 transition duration-200">
                                     <td class="border-r px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 max-w-32">
                                         <?php echo $mission->id; ?>

@@ -3,11 +3,11 @@
         <!-- Mission Section -->
         <div class="lg:w-1/3 p-6 bg-blue-300">
             <form method="GET" class="flex flex-row flex-wrap">
-                <h2 class="text-2xl font-bold mb-2 mr-4">Mission ID</h2>
+                <h2 class="flex-none text-2xl font-bold mb-2 mr-4">Mission ID</h2>
                 <input 
                     name="missionId"
                     type="text" 
-                    class="min:w-1/3 mr-4 mb-2 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-gray-500" 
+                    class="flex-auto mr-4 mb-2 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-gray-500" 
                     value="<?php echo $missionId; ?>"
                 />
                 <input type="hidden" name="controller" value="missionReport">
@@ -15,13 +15,13 @@
                     type="submit"
                     name="action"
                     value="index"
-                    class="min:w-1/3 mb-2 bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    class="flex-none mb-2 bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 >
                     Get
                 </button>
             </form>
             <?php if(isset($mission) && $mission) :?>
-                <ul class="space-y-2">
+                <ul class="space-y-2 mb-8 mt-2">
                     <li><span class="font-semibold">Title : </span><?php echo $mission->name; ?></li>
                     <li><span class="font-semibold">Status : </span><?php echo $mission->status; ?></li>
                     <li><span class="font-semibold">Leader ID : </span><?php echo $mission->leaderId; ?></li>
@@ -35,6 +35,14 @@
                         <div class="max-w-96 text-wrap break-words"><?php echo $mission->strategy; ?></div>
                     </li>
                 </ul>
+                <div class="flex flex-row-reverse">
+                    <a
+                        href="#"
+                        class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    >
+                        Create Report
+                    </a>
+                </div>
             <?php elseif(isset($error) && $error) : ?>
                 <h1 class="text-lg"><?php echo $error; ?></h1>
             <?php else : ?>
