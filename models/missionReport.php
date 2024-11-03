@@ -36,7 +36,8 @@ class MissionReport
         ";
         $params = [$id];
         $result = Database::query($sql, $params);
-        return MissionReport::db_to_object($result);
+        $mission_report = MissionReport::db_to_object($result);
+        return $mission_report ? $mission_report[0] : null;
     }
 
     public static function getBy($data, $value)
@@ -49,27 +50,27 @@ class MissionReport
         return MissionReport::db_to_object($result);
     }
     
-    public static function add($missionId, $detail, $date)
+    public static function add($missionId, $detail)
     {
         $sql = "
-            INSERT INTO mission_report
-            VALUES (?, ?, ?)
+            INSERT INTO mission_report(mission_id, detail)
+            VALUES (?, ?)
         ";
-        $params = [$missionId, $detail, $date];
+        $params = [$missionId, $detail];
         $result = Database::query($sql, $params);
-        return MissionReport::db_to_object($result);
+        return $result;
     }
     
-    public static function update($id, $missionId, $detail, $date)
+    public static function update($id, $detail)
     {
         $sql = "
             UPDATE mission_report
-            SET mission_id = ?, detail = ?, date = ?
+            SET detail = ?
             WHERE mission_report_id = ?
         ";
-        $params = [$missionId, $detail, $date, $id];
+        $params = [$detail, $id];
         $result = Database::query($sql, $params);
-        return MissionReport::db_to_object($result);
+        return $result;
     }
 
     public static function delete($id)
@@ -79,7 +80,7 @@ class MissionReport
         ";
         $params = [$id];
         $result = Database::query($sql, $params);
-        return MissionReport::db_to_object($result);
+        return $result;
     }
 
 
@@ -89,7 +90,7 @@ class MissionReport
         while ($row = $result_query->fetch_assoc())
         {
             $data[] = new MissionReport(
-                $row['mission_report'],
+                $row['mission_report_id'],
                 $row['mission_id'],
                 $row['detail'],
                 $row['date']

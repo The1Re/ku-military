@@ -136,8 +136,10 @@
                                     <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900 break-words max-w-96 text-wrap">
                                         <?php echo $mission->strategy; ?>
                                     </td>
-                                    <td class="border-r px-6 py-4 whitespace-nowrap text-sm font-semibold text-<?php echo $style; ?>">
-                                        <?php echo $mission->status; ?>
+                                    <td class="border-r px-2 py-4 whitespace-nowrap text-sm font-semibold">
+                                        <div class="text-white bg-<?php echo $style; ?> rounded-lg px-4">
+                                            <?php echo $mission->status; ?>
+                                        </div>    
                                     </td>
                                     <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                         <?php echo $mission->dateStart; ?>

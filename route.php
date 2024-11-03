@@ -15,7 +15,7 @@ $action = $_GET['action'] ?? 'home';
 $controllers = [
     'page' => ['home', 'error'],
     'mission' => ['index', 'addForm', 'add', 'deleteForm', 'delete', 'editForm', 'edit', 'search', 'sort'],
-    'missionReport' => ['index']
+    'missionReport' => ['index', 'addForm', 'add', 'deleteForm', 'delete', 'editForm', 'edit']
 ];
 
 function call(string $controller, string $action)
