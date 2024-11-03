@@ -44,12 +44,12 @@
                     </li>
                     <li>
                         <label class="font-semibold">Date Start : </label>
-                        <span><?php echo $mission->dateStart; ?></span>
+                        <span><?php echo date("d/m/Y s:i:H", strtotime($mission->dateStart)); ?></span>
                     </li>
                     <?php if ($mission->dateEnd) : ?> 
                         <li>
                             <label class="font-semibold">Date End : </label>
-                            <span><?php echo $mission->dateEnd; ?></span>
+                            <span><?php echo date("d/m/Y s:i:H", strtotime($mission->dateEnd)); ?></span>
                         </li>
                     <?php endif; ?>
                     <li>
@@ -59,7 +59,7 @@
                 </ul>
                 <div class="flex flex-row-reverse">
                     <a
-                        href="#"
+                        href="?controller=missionReport&action=addForm&missionId=<?php echo "$mission->id"; ?>"
                         class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     >
                         Create Report

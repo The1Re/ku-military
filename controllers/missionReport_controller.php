@@ -4,9 +4,9 @@ require_once('utils/helper.php');
 
 class MissionReportController
 {
-    public function index()
+    public function index($missionId = null)
     {
-        $missionId = $_GET['missionId'] ?? null;
+        $missionId = $_GET['missionId'] ?? $missionId ?? null;
         $mission = null;
         $error = null;
 
@@ -21,5 +21,22 @@ class MissionReportController
         
         end:
         require('views/mission_report/index.php');
+    }
+
+    public function addForm()
+    {
+        $missionId = $_GET['missionId'];
+
+        require('views/mission_report/add_form.php');
+    }
+
+    public function add()
+    {
+        $missionId = $_POST['missionId'];
+        if (isset($_POST['action']) && $_POST['action'] == 'add') {
+            echo 'Add success';
+        }
+
+        $this->index($missionId);
     }
 }
