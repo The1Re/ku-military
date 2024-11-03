@@ -44,12 +44,12 @@
                     </li>
                     <li>
                         <label class="font-semibold">Date Start : </label>
-                        <span><?php echo date("d/m/Y s:i:H", strtotime($mission->dateStart)); ?></span>
+                        <span><?php echo date("d M Y H:i:s", strtotime($mission->dateStart)); ?></span>
                     </li>
                     <?php if ($mission->dateEnd) : ?> 
                         <li>
                             <label class="font-semibold">Date End : </label>
-                            <span><?php echo date("d/m/Y s:i:H", strtotime($mission->dateEnd)); ?></span>
+                            <span><?php echo date("d M Y H:i:s", strtotime($mission->dateEnd)); ?></span>
                         </li>
                     <?php endif; ?>
                     <li>
@@ -76,21 +76,34 @@
         <div class="lg:w-2/3 p-6 <?php if(!$mission_report_list) echo "hidden"; ?>">
             <h2 class="text-2xl font-bold mb-2">Mission Report</h2>
             <div class="mb-4">
-                <p>Report summary for Mission A:</p>
+                <p>Report summary for <?php echo $mission->name;?></p>
                 <ul class="mt-2 space-y-2">
                     <li><span class="font-semibold">Injured:</span> 19 people</li>
-                    <li><span class="font-semibold">Sick:</span> 15 people</li>
+                    <li><span class="font-semibold">Died:</span> 15 people</li>
                 </ul>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-gray-50 p-4 rounded shadow">
-                    <h3 class="font-semibold">Additional Details 1</h3>
-                    <p>Details about this section of the report.</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded shadow">
-                    <h3 class="font-semibold">Additional Details 2</h3>
-                    <p>Details about another aspect of the mission report.</p>
-                </div>
+                <?php foreach($mission_report_list as $mission_report) : ?>
+                    <div class="bg-gray-50 p-4 rounded shadow">
+                        <div class="flex flex-row space-x-2">
+                            <h3 class="flex-auto font-semibold mb-2">Report ID[<?php echo $mission_report->id; ?>]</h3>
+                            <a 
+                                href="?controller=missionReport&action=editForm&id=<?php echo $mission_report->id; ?>" 
+                                class="inline-flex items-center text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 transition duration-200"
+                            >
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </a>
+                            <a 
+                                href="?controller=missionReport&action=deleteForm&id=<?php echo $mission_report->id; ?>" 
+                                class="inline-flex items-center text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 transition duration-200"
+                            >
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </div>
+                        <p>Created date : <?php echo date('d M Y H:i:s', strtotime($mission_report->date)); ?></p>
+                        <p class="text-wrap break-words">Detail : <?php echo $mission_report->detail; ?></p>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
