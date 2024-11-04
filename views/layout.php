@@ -7,5 +7,4 @@
          <?php require('route.php'); ?>
      </div>
 </div>
-<?php 
 
