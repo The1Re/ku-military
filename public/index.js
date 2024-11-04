@@ -1,25 +1,35 @@
+function toggleSidebarFn(sidebar)
+{
+    const toggleSidebarBtn = document.getElementById('toggleSidebarButton');
+
+    const sidebarIsOpen = sidebar.classList.contains('w-64');
+
+    sidebar.classList.toggle('w-64');
+    sidebar.classList.toggle('w-0');
+
+    localStorage.setItem('isSidebarOpen', !sidebarIsOpen);
+    
+    setTimeout(() => {
+        toggleSidebarBtn.classList.toggle('hidden');
+    }, sidebarIsOpen ? 150 : 0);
+}
 
 
 // sidebar handle
 const sidebar = document.getElementById('sidebar');
 const toggleSidebars = document.getElementsByClassName('sidebar-toggle');
-
 for (let i=0; i<toggleSidebars.length; i++)
 {
     const toggleSidebar = toggleSidebars[i];
-    toggleSidebar.addEventListener('click', () => {
-        const toggleSidebarBtn = document.getElementById('toggleSidebarButton');
-
-        const sidebarIsOpen = sidebar.classList.contains('w-64');
-
-        sidebar.classList.toggle('w-64');
-        sidebar.classList.toggle('w-0');
-        
-        setTimeout(() => {
-            toggleSidebarBtn.classList.toggle('hidden');
-        }, sidebarIsOpen ? 150 : 0);
-    })
+    toggleSidebar.addEventListener('click', () => toggleSidebarFn(sidebar))
 }
+    
+// check before sidebar is open
+const sideBarOpen = localStorage.getItem('isSidebarOpen') === 'true';
+if (!sideBarOpen) {
+    toggleSidebarFn(sidebar);
+}
+
 
 // sidebar toggle menu handle
 const toggle_lists = document.getElementsByClassName('toggle-list');
