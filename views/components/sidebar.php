@@ -58,7 +58,7 @@
                 </ul>
             </li>
             <li>
-                <a href="http://158.108.207.4/db24/db24_002/"
+                <a href="http://158.108.207.4/db24/db24_140/"
                     class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-blue-500 pr-6">
                     <span class="inline-flex justify-center items-center ml-4">
                         <i class="fa-solid fa-briefcase"></i>
@@ -67,7 +67,7 @@
                 </a>
             </li>
             <li>
-                <a href="http://158.108.207.4/db24/db24_150/humanResoure/"
+                <a href="http://158.108.207.4/db24/db24_139/"
                     class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-blue-500 pr-6">
                     <span class="inline-flex justify-center items-center ml-4">
                         <i class="fa-solid fa-people-group"></i>
@@ -76,7 +76,7 @@
                 </a>
             </li>
             <li>
-                <a href="http://158.108.207.4/db24/db24_041/"
+                <a href="http://158.108.207.4/db24/db24_142/"
                     class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-blue-500 pr-6">
                     <span class="inline-flex justify-center items-center ml-4">
                         <i class="fa-solid fa-file-circle-exclamation"></i>
