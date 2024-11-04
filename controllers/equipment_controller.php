@@ -4,9 +4,9 @@ require_once('utils/helper.php');
 
 class EquipmentController 
 {
-    public function return($missionId = null)
+    public function return()
     {
-        $missionId = $_GET['missionId'] ?? $missionId ?? null;
+        $missionId = $_GET['missionId'] ?? null;
         $mission = null;
         $error = null;
 
@@ -16,7 +16,7 @@ class EquipmentController
                 $error = "There is no mission id in database!";
                 goto end;
             }
-            
+            $borrowEquipment = BorrowEquipment::getByMissionId($missionId);
         }
         
         end:

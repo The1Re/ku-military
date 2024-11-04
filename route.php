@@ -39,6 +39,9 @@ function call(string $controller, string $action)
             break;
         case 'equipment':
             require_once('models/mission.php');
+            require_once('models/borrowEquipment.php');
+            require_once('models/borrowEquipmentDetail.php');
+            require_once('models/equipment.php');
             $controller_obj = new EquipmentController();
             break;
     }
