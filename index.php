@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="public/style.css">
     <link rel="icon" href="public/images/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://kit.fontawesome.com/c80799690c.js" crossorigin="anonymous"></script>
 </head>
 <body>
