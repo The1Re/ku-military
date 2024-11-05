@@ -15,7 +15,8 @@ $action = $_GET['action'] ?? 'home';
 $controllers = [
     'page' => ['home', 'error'],
     'mission' => ['index', 'addForm', 'add', 'deleteForm', 'delete', 'editForm', 'edit', 'search', 'sort'],
-    'missionReport' => ['index', 'addForm', 'add', 'deleteForm', 'delete', 'editForm', 'edit']
+    'missionReport' => ['index', 'addForm', 'add', 'deleteForm', 'delete', 'editForm', 'edit'],
+    'equipment' => ['returnForm', 'return']
 ];
 
 function call(string $controller, string $action)
@@ -35,6 +36,13 @@ function call(string $controller, string $action)
             require_once('models/missionReport.php');
             require_once('models/mission.php');
             $controller_obj = new MissionReportController();
+            break;
+        case 'equipment':
+            require_once('models/mission.php');
+            require_once('models/borrowEquipment.php');
+            require_once('models/borrowEquipmentDetail.php');
+            require_once('models/equipment.php');
+            $controller_obj = new EquipmentController();
             break;
     }
     $controller_obj->$action();

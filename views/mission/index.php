@@ -147,28 +147,41 @@
                                     <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                         <?php echo $mission->dateEnd ?>
                                     </td>
-                                    <td class="border-r py-4 px-2 whitespace-nowrap text-center space-x-6 text-sm font-medium">
-                                        <a 
-                                            href="?controller=mission&action=editForm&id=<?php echo $mission->id; ?>" 
-                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 transition duration-200"
-                                        >
-                                            <i class="fa-regular fa-pen-to-square"></i>
-                                            Edit
-                                        </a>
-                                        <a 
-                                            href="?controller=missionReport&action=index&missionId=<?php echo $mission->id; ?>" 
-                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-yellow-600 hover:text-yellow-800 focus:outline-none focus:text-yellow-800 transition duration-200"
-                                        >
-                                            <i class="fa-solid fa-bullhorn"></i>
-                                            Report
-                                        </a>
-                                        <a 
-                                            href="?controller=mission&action=deleteForm&id=<?php echo $mission->id; ?>" 
-                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 transition duration-200"
-                                        >
-                                            <i class="fa-solid fa-trash"></i>
-                                            Delete
-                                        </a>
+                                    <td class="border-r p-2 whitespace-nowrap text-center space-y-2 text-sm font-medium flex flex-col">
+                                        <div class="inline-flex justify-between px-4">
+                                            <a 
+                                                href="?controller=mission&action=editForm&id=<?php echo $mission->id; ?>" 
+                                                class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 transition duration-200"
+                                            >
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                                Edit
+                                            </a>
+                                            <a 
+                                                href="?controller=mission&action=deleteForm&id=<?php echo $mission->id; ?>" 
+                                                class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 transition duration-200"
+                                            >
+                                                <i class="fa-solid fa-trash"></i>
+                                                Delete
+                                            </a>
+                                        </div>
+                                        <div class="inline-flex justify-between px-4">
+                                            <a 
+                                                href="?controller=missionReport&action=index&missionId=<?php echo $mission->id; ?>" 
+                                                class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-yellow-600 hover:text-yellow-800 focus:outline-none focus:text-yellow-800 transition duration-200"
+                                            >
+                                                <i class="fa-solid fa-bullhorn"></i>
+                                                Report
+                                            </a>
+                                            <?php if (in_array($mission->status, ['Success', 'Failed'])) : ?>
+                                                <a 
+                                                    href="?controller=equipment&action=returnForm&missionId=<?php echo $mission->id; ?>" 
+                                                    class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-green-600 hover:text-green-800 focus:outline-none focus:text-green-800 transition duration-200"
+                                                >
+                                                    <i class="fa-solid fa-rotate-left"></i>
+                                                    Return
+                                                </a>
+                                            <?php endif; ?>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
