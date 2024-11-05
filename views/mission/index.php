@@ -148,7 +148,7 @@
                                         <?php echo $mission->dateEnd ?>
                                     </td>
                                     <td class="border-r p-2 whitespace-nowrap text-center space-y-2 text-sm font-medium flex flex-col">
-                                        <div class="inline-flex justify-between px-4">
+                                        <div class="inline-flex justify-between px-4 space-x-6">
                                             <a 
                                                 href="?controller=mission&action=editForm&id=<?php echo $mission->id; ?>" 
                                                 class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 transition duration-200"
