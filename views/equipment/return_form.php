@@ -92,30 +92,71 @@
                                 <label class="font-normal">Borrow Date : </label><span><?php echo $borrowEquipment->borrowDate ?></span>
                                 <div class="relative mt-4 bg-transparent border border-gray-400 rounded-lg py-6 px-4">
                                     <label class="absolute bg-gray-50 -top-4 left-4 p-1">Detail</label>
-                                    <div class="space-y-3">
-                                        <div class="flex items-center ps-4 border border-gray-400 rounded bg-blue-400">
-                                            <p class="w-full py-4 ms-2 text-base font-semibold text-white">ID</p>
-                                            <p class="w-full py-4 ms-2 text-base font-semibold text-white">Name</p>
-                                            <p class="w-full py-4 ms-2 text-base font-semibold text-white">Type</p>
-                                            <p class="w-full py-4 ms-2 text-base font-semibold text-white">Status</p>
+                                    <div class="flex flex-col overflow-hidden max-h-[60vh]">
+                                        <div class="max-w-full inline-block align-middle">
+                                            <div class="border rounded-lg shadow-md overflow-y-auto max-h-[60vh]">
+                                                <table class="min-w-full divide-y divide-gray-200 table-fixed border">
+                                                    <thead>
+                                                        <tr class="sticky top-0 bg-blue-400">
+                                                            <th scope="col" class=" px-6 py-3 text-start text-xs font-bold text-white uppercase tracking-wider">
+                                                                ID
+                                                            </th>
+                                                            <th scope="col" class=" px-6 py-3 text-start text-xs font-bold text-white uppercase tracking-wider">
+                                                                Name
+                                                            </th>
+                                                            <th scope="col" class=" px-6 py-3 text-start text-xs font-bold text-white uppercase tracking-wider">
+                                                                Type
+                                                            </th>
+                                                            <th scope="col" class=" px-6 py-3 text-start text-xs font-bold text-white uppercase tracking-wider max-w-24">
+                                                                Status
+                                                            </th>
+                                                            <th scope="col" class=" px-6 py-3 text-start text-xs font-bold text-white uppercase tracking-wider">
+                                                                Borrow Status
+                                                            </th>
+                                
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="bg-white divide-y divide-gray-200">
+                                                        <?php foreach ($borrowEquipment->detail as $detail) : ?>
+                                                            <?php $style = getStatusStyle('equipment_status', $detail->equipment->status) ;?>
+                                                            <tr class="hover:bg-gray-100 transition duration-200">
+                                                                <td class="border-r px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                                    <div class="inline-flex space-x-2">
+                                                                        <input 
+                                                                            type="checkbox"  
+                                                                            class="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                                                                            value=""
+                                                                        >
+                                                                        <p><?php echo $detail->equipment->id; ?></p>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                                    <?php echo $detail->equipment->name; ?>
+                                                                </td>
+                                                                <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                                    <div class="inline-flex space-x-2">
+                                                                        <?php if($detail->equipment->type == 'weapon') :?>
+                                                                            <i class="fa-solid fa-gun translate-y-1"></i>
+                                                                        <?php else : ?>
+                                                                            <i class="fa-solid fa-jet-fighter-up translate-y-1"></i>
+                                                                        <?php endif; ?>
+                                                                        <p><?php echo $detail->equipment->type; ?></p>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="border-r px-2 py-4 whitespace-nowrap text-sm font-semibold max-w-24">
+                                                                    <div class="<?php echo $style; ?> rounded-lg px-4 text-center break-words text-wrap">
+                                                                        <?php echo $detail->equipment->status; ?>
+                                                                    </div>    
+                                                                </td>
+                                                                <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                                    <?php echo $detail->status; ?>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
-                                        <?php foreach($borrowEquipment->detail as $detail) : ?>
-                                            <ul class="flex items-center ps-4 border border-gray-400 rounded">
-                                                <input 
-                                                    type="checkbox"  
-                                                    class="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
-                                                    value=""
-                                                >
-                                                <li class="w-full py-4 ms-2 text-sm font-normal text-gray-900"><?php echo $detail->equipment->id; ?></li>
-                                                <li class="w-full py-4 ms-2 text-sm font-normal text-gray-900"><?php echo $detail->equipment->name; ?></li>
-                                                <li class="w-full py-4 ms-2 text-sm font-normal text-gray-900"><?php echo $detail->equipment->type; ?></li>
-                                                <li class="w-full py-4 ms-2 text-sm font-normal text-gray-900">
-                                                
-                                                        <?php echo $detail->equipment->status; ?>
-                                                
-                                                </li>
-                                            </ul>
-                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                             </div>
