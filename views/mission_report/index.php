@@ -86,8 +86,10 @@
                     <div class="mb-4">
                         <p>Report summary for <?php echo $mission->name;?></p>
                         <ul class="mt-2 space-y-2">
-                            <li><span class="font-semibold">Injured:</span> 19 people</li>
-                            <li><span class="font-semibold">Died:</span> 15 people</li>
+                            <li><span class="font-semibold">Minor Injured:</span> <?php echo $injured_status['minor_injured']; ?> people</li>
+                            <li><span class="font-semibold">Seriously Injured:</span> <?php echo $injured_status['seriously_injured']; ?> people</li>
+                            <li><span class="font-semibold">Died:</span> <?php echo $injured_status['died']; ?> people</li>
+                            <li><span class="font-semibold">Clear:</span> <?php echo $injured_status['clear']; ?> people</li>
                         </ul>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">

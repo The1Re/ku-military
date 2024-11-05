@@ -17,6 +17,7 @@ class MissionReportController
                 goto end;
             }
             $mission_report_list = MissionReport::getBy("mission_id", $missionId);
+            $injured_status = MissionReport::amount_injured_person($missionId);
         }
         
         end:

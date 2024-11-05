@@ -83,6 +83,33 @@ class MissionReport
         return $result;
     }
 
+    public static function amount_injured_person($missionId)
+    {
+        $sql = "
+            SELECT 
+                p.status, 
+                COUNT(*) AS amount 
+            FROM mission_report AS r
+            INNER JOIN injured_person AS p ON p.mission_report_id = r.mission_report_id
+            WHERE r.mission_id = ?
+            GROUP BY p.status
+        ";
+        $params = [$missionId];
+        $result = Database::query($sql, $params);
+
+        $data = [
+            'died' => 0,
+            'minor_injured' => 0,
+            'seriously_injured' => 0,
+            'clear' => 0
+        ];
+        while ($row = $result->fetch_assoc())
+        {
+            $data[$row['status']] = $row['amount']; 
+        }
+        return $data;
+    }
+
 
     public static function db_to_object($result_query)
     {
