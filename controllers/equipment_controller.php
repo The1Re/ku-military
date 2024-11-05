@@ -33,7 +33,7 @@ class EquipmentController
         // get checkbox maintenance value
         foreach (array_keys($_POST) as $post)
         {
-            if (str_contains($post, 'detailId_')) {
+            if (str_contain($post, 'detailId_')) {
                 $maintenanceId[] = $_POST[$post];
             }
         }
@@ -53,7 +53,7 @@ class EquipmentController
         BorrowEquipmentDetail::update_return_status($detailId);
 
         $availableId = array_diff($detailId, $maintenanceId);
-        
+
         if ($availableId)
             Equipment::update_status(array_diff($detailId, $maintenanceId), 'available');
         if ($maintenanceId)

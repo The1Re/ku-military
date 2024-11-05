@@ -24,3 +24,12 @@ function getStatusStyle(string $status = null, string $type = 'mission_status')
     }
     return $status ? $status_style[$status] : $status_style;
 }
+
+function str_contain($data, $contain_str)
+{
+    $data = str_split($data);
+    $contain = str_split($contain_str);
+
+    $diff = array_diff($contain, $data);
+    return count($diff) == 0;
+}
