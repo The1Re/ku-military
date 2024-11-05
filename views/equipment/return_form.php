@@ -118,7 +118,7 @@
                                                     </thead>
                                                     <tbody class="bg-white divide-y divide-gray-200">
                                                         <?php foreach ($borrowEquipment->detail as $detail) : ?>
-                                                            <?php $style = getStatusStyle('equipment_status', $detail->equipment->status) ;?>
+                                                            <?php $style = getStatusStyle($detail->equipment->status, 'equipment_status') ;?>
                                                             <tr class="hover:bg-gray-100 transition duration-200">
                                                                 <td class="border-r px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                                                     <div class="inline-flex space-x-2">
@@ -127,7 +127,6 @@
                                                                             class="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
                                                                             value=""
                                                                         >
-                                                                        <p><?php echo $detail->equipment->id; ?></p>
                                                                     </div>
                                                                 </td>
                                                                 <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -165,7 +164,7 @@
                 </div>
             <?php else : ?>
                 <div class="lg:w-2/3 p-6 flex justify-center items-center">
-                    <h2 class="text-2xl font-semibold">There is no return equipment</h2>
+                    <h2 class="text-2xl font-semibold">There is no borrow equipment</h2>
                 </div>
             <?php endif; ?>
         <?php endif; ?>

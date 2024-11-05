@@ -1,17 +1,15 @@
 <?php
 
 /**
- * Get status style
- * if set param return string status style
- * else return list of status style
- * 
+ * Summary of getStatusStyle
  * @param string $status
+ * @param string $type
  * @return string|string[]
  */
-function getStatusStyle(string $type = 'mission_status', string $status = null)
+function getStatusStyle(string $status = null, string $type = 'mission_status')
 {
     $status_style = [];
-    if ($type == 'mission_style') {
+    if ($type == 'mission_status') {
         $status_style = [
             'InProgress' => 'blue-700', 
             'Success' => 'green-500', 
