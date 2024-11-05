@@ -67,8 +67,8 @@
         <!-- Return Equipment Section -->
         <?php if(isset($borrowEquipments)) : ?>
             <?php if($borrowEquipments) : ?>
-                <div class="lg:w-2/3 p-6 lg:max-h-[52rem] overflow-y-scroll">
-                    <h2 class="text-2xl font-bold">Return Equipment</h2>
+                <form method="POST" action="?controller=equipment&action=return" class="lg:w-2/3 p-6 lg:max-h-[52rem] overflow-y-auto">
+                    <h2 class="text-2xl font-bold">Return Equipment (select for maintenance)</h2>
                     <div class="flex flex-row justify-between-between">
                         <div class="inline-flex flex-auto items-center">
                             <input 
@@ -78,12 +78,15 @@
                             >
                             <p class="w-full py-4 ms-2 text-sm font-normal text-gray-900">Select all</p>
                         </div>
-                        <a
-                            href="?controller=mission&action=index"
+                        <input type="hidden" name="missionId" value="<?php echo $mission->id; ?>">
+                        <button
+                            name="action"
+                            value="submit"
+                            type="submit"
                             class="bg-gray-700 flex-none mb-4 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         >
                             Submit
-                        </a>
+                        </button>
                     </div>
                     <div class="grid grid-cols-1 gap-6">
                         <?php foreach($borrowEquipments as $borrowEquipment) : ?>
@@ -123,10 +126,12 @@
                                                                 <td class="border-r px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                                                     <div class="inline-flex space-x-2">
                                                                         <input 
+                                                                            name="detailId_<?php echo $detail->id; ?>"
                                                                             type="checkbox"  
                                                                             class="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
-                                                                            value=""
+                                                                            value="<?php echo $detail->id; ?>"
                                                                         >
+                                                                        <span><?php echo $detail->id; ?></span>
                                                                     </div>
                                                                 </td>
                                                                 <td class="border-r px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -161,7 +166,7 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
-                </div>
+                </form>
             <?php else : ?>
                 <div class="lg:w-2/3 p-6 flex justify-center items-center">
                     <h2 class="text-2xl font-semibold">There is no borrow equipment</h2>

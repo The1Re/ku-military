@@ -16,7 +16,7 @@ $controllers = [
     'page' => ['home', 'error'],
     'mission' => ['index', 'addForm', 'add', 'deleteForm', 'delete', 'editForm', 'edit', 'search', 'sort'],
     'missionReport' => ['index', 'addForm', 'add', 'deleteForm', 'delete', 'editForm', 'edit'],
-    'equipment' => ['return']
+    'equipment' => ['returnForm', 'return']
 ];
 
 function call(string $controller, string $action)

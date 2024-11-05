@@ -174,7 +174,7 @@
                                             </a>
                                             <?php if (in_array($mission->status, ['Success', 'Failed'])) : ?>
                                                 <a 
-                                                    href="?controller=equipment&action=return&missionId=<?php echo $mission->id; ?>" 
+                                                    href="?controller=equipment&action=returnForm&missionId=<?php echo $mission->id; ?>" 
                                                     class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-green-600 hover:text-green-800 focus:outline-none focus:text-green-800 transition duration-200"
                                                 >
                                                     <i class="fa-solid fa-rotate-left"></i>

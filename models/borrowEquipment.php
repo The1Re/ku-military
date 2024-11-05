@@ -45,6 +45,18 @@ class BorrowEquipment
         return BorrowEquipment::db_to_object($result);
     }
 
+    public static function update_return_date($missionId)
+    {
+        $sql = "
+            UPDATE borrow_equipment
+            SET return_date = ?
+            WHERE mission_id = ?
+        ";
+        $params = [date("Y-m-d H:i:s"), $missionId];
+        $result = Database::query($sql, $params);
+        return $result;
+    }
+
     public static function db_to_object($result_query)
     {
         $data = [];

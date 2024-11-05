@@ -4,9 +4,9 @@ require_once('utils/helper.php');
 
 class EquipmentController 
 {
-    public function return()
+    public function returnForm($missionId = null)
     {
-        $missionId = $_GET['missionId'] ?? null;
+        $missionId = $_GET['missionId'] ?? $missionId;
         $mission = null;
         $error = null;
 
@@ -21,5 +21,38 @@ class EquipmentController
         
         end:
         require('views/equipment/return_form.php');
+    }
+
+    public function return()
+    {
+        $missionId = $_POST['missionId'];
+        $borrow_list = BorrowEquipment::getByMissionId($missionId);
+        $maintenanceId = [];
+        $detailId = [];
+
+        // get checkbox maintenance value
+        foreach (array_keys($_POST) as $post)
+        {
+            if (str_contains($post, 'detailId_')) {
+                $maintenanceId[] = $_POST[$post];
+            }
+        }
+        
+        // get detail id
+        foreach($borrow_list as $borrow)
+        {
+            foreach($borrow->detail as $detail)
+            {
+                $detailId[] = $detail->id;
+            }
+        }
+        
+        // update
+        BorrowEquipment::update_return_date($missionId);
+        BorrowEquipmentDetail::update_return_status($detailId);
+        Equipment::update_status(array_diff($detailId, $maintenanceId), 'available');
+        Equipment::update_status($maintenanceId, 'maintenance');
+        
+        $this->returnForm($missionId);
     }
 }

@@ -1,4 +1,4 @@
-<div class="container mx-auto px-6 py-12">
+<div class="container mx-auto px-6 py-12 h-screen">
     <div class="flex flex-col lg:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
         <!-- Mission Section -->
         <div class="lg:w-1/3 p-6 bg-blue-300">
@@ -57,7 +57,13 @@
                         <span class="max-w-96 text-wrap break-words"><?php echo $mission->strategy; ?></span>
                     </li>
                 </ul>
-                <div class="flex flex-row-reverse">
+                <div class="flex flex-row justify-between">
+                    <a 
+                        href="?controller=mission&action=index"
+                        class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    >
+                        Back
+                    </a>
                     <a
                         href="?controller=missionReport&action=addForm&missionId=<?php echo "$mission->id"; ?>"
                         class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -75,7 +81,7 @@
         <!-- Mission Report Section -->
          <?php if(isset($mission_report_list)) : ?>
             <?php if($mission_report_list) : ?>
-                <div class="lg:w-2/3 p-6">
+                <div class="lg:w-2/3 p-6 lg:max-h-[52rem] overflow-y-auto">
                     <h2 class="text-2xl font-bold mb-2">Mission Report</h2>
                     <div class="mb-4">
                         <p>Report summary for <?php echo $mission->name;?></p>
