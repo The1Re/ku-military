@@ -47,12 +47,18 @@ class EquipmentController
             }
         }
         
+
         // update
         BorrowEquipment::update_return_date($missionId);
         BorrowEquipmentDetail::update_return_status($detailId);
-        Equipment::update_status(array_diff($detailId, $maintenanceId), 'available');
-        Equipment::update_status($maintenanceId, 'maintenance');
+
+        $availableId = array_diff($detailId, $maintenanceId);
         
+        if ($availableId)
+            Equipment::update_status(array_diff($detailId, $maintenanceId), 'available');
+        if ($maintenanceId)
+            Equipment::update_status($maintenanceId, 'maintenance');
+
         $this->returnForm($missionId);
     }
 }

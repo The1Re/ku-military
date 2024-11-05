@@ -46,3 +46,18 @@ for (let i=0; i<toggle_lists.length; i++)
         icon.classList.toggle('fa-angle-up');
     });
 }
+
+
+// check all function
+const checkall = document.getElementById('checkAll');
+checkall.addEventListener('click', () => {
+    const check_list = document.getElementsByClassName('detail_check');
+    if (checkall.checked === true) {
+        checked = true;
+    }else{
+        checked = false;
+    }
+
+    for (let i=0; i < check_list.length; i++)
+        check_list[i].checked = checked;
+})

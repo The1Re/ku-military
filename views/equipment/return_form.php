@@ -72,11 +72,12 @@
                     <div class="flex flex-row justify-between-between">
                         <div class="inline-flex flex-auto items-center">
                             <input 
+                                id="checkAll"
                                 type="checkbox"  
                                 class="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
                                 value=""
                             >
-                            <p class="w-full py-4 ms-2 text-sm font-normal text-gray-900">Select all</p>
+                            <p class="w-full py-4 ms-2 text-sm font-normal text-gray-900">Maintenance All</p>
                         </div>
                         <input type="hidden" name="missionId" value="<?php echo $mission->id; ?>">
                         <button
@@ -128,7 +129,7 @@
                                                                         <input 
                                                                             name="detailId_<?php echo $detail->id; ?>"
                                                                             type="checkbox"  
-                                                                            class="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                                                                            class="detail_check cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
                                                                             value="<?php echo $detail->id; ?>"
                                                                         >
                                                                         <span><?php echo $detail->id; ?></span>
