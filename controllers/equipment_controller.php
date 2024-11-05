@@ -16,7 +16,7 @@ class EquipmentController
                 $error = "There is no mission id in database!";
                 goto end;
             }
-            $borrowEquipment = BorrowEquipment::getByMissionId($missionId);
+            $borrowEquipments = BorrowEquipment::getByMissionId($missionId);
         }
         
         end:
