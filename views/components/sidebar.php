@@ -81,7 +81,7 @@
                     <span class="inline-flex justify-center items-center ml-4">
                         <i class="fa-solid fa-file-circle-exclamation"></i>
                     </span>
-                    <span class="ml-2 text-sm tracking-wide truncate">Report</span>
+                    <span class="ml-2 text-sm tracking-wide truncate">Injured Report</span>
                 </a>
             </li>
         </ul>
