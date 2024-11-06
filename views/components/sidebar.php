@@ -76,12 +76,30 @@
                 </a>
             </li>
             <li>
-                <a href="http://158.108.207.4/db24/db24_142/FinalProject"
+                <a href="http://158.108.207.4/db24/db24_142/FinalProject/?controller=injured_person&action=index"
                     class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-blue-500 pr-6">
                     <span class="inline-flex justify-center items-center ml-4">
                         <i class="fa-solid fa-file-circle-exclamation"></i>
                     </span>
                     <span class="ml-2 text-sm tracking-wide truncate">Injured Report</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://158.108.207.4/db24/db24_142/FinalProject/?controller=camp&action=index"
+                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-blue-500 pr-6">
+                    <span class="inline-flex justify-center items-center ml-4">
+                        <i class="fa-solid fa-tent"></i>
+                    </span>
+                    <span class="ml-2 text-sm tracking-wide truncate">Camp</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://158.108.207.4/db24/db24_142/FinalProject/?controller=doctor&action=index"
+                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-blue-500 pr-6">
+                    <span class="inline-flex justify-center items-center ml-4">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </span>
+                    <span class="ml-2 text-sm tracking-wide truncate">Doctor</span>
                 </a>
             </li>
         </ul>
