@@ -1,8 +1,8 @@
 <?php
 
-#  show error information
-// error_reporting(E_ALL);
-// ini_set('display_errors', true);
+#  show error information test
+error_reporting(E_ALL);
+ini_set('display_errors', false);
 
 /* 
     Get controller and action in query params
