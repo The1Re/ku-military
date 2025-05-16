@@ -1,6 +1,6 @@
 <?php
 
-#  show error information test
+#  show error information
 error_reporting(E_ALL);
 ini_set('display_errors', false);
 
